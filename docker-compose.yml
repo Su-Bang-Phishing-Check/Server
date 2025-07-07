@@ -3,8 +3,8 @@ services:
   nginx:
     image: nginx
     volumes:
-      - challengeloc:/var/www/certbot
-      - certloc:/etc/letsencrypt
+      - challengeloc:/var/www/certbot:ro
+      - certloc:/etc/letsencrypt:ro
     ports:
       - "80:80"
       - "443:443"
@@ -13,8 +13,8 @@ services:
   certbot:
     image: certbot/certbot
     volumes:
-      - challengeloc:/var/www/certbot
-      - certloc:/etc/letsencrypt
+      - challengeloc:/var/www/certbot:rw
+      - certloc:/etc/letsencrypt:rw
     command: certonly --webroot --webroot-path=/var/www/certbot --email hanharry2@gmail.com --agree-tos --no-eff-email -d xn--hw4bo2pv3cz9f.com
 
 
