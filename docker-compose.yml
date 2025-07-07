@@ -17,7 +17,7 @@ services:
     volumes:
       - challengeloc:/var/www/certbot
       - certloc:/etc/letsencrypt
-    entrypoint: >
+    entrypoint: |
       certbot certonly --webroot -w /var/www/certbot \
       -d xn--hy1bt9b37a.com \
       --email hanharry2@gmail.com \
