@@ -5,7 +5,7 @@ services:
     volumes:
       - challengeloc:/var/www/certbot:ro
       - certloc:/etc/letsencrypt:ro
-      - ./nginx/default.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d/default.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
       - "443:443"
