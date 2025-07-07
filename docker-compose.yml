@@ -1,34 +1,37 @@
 services:
+
   nginx:
-    image: nginx:stable
-    depends_on:
-      - certbot
-      - web
+    image: nginx
+    volumes:
+      - challengeloc:/var/www/certbot
+      - certloc:/etc/letsencrypt
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d     # Git에 있는 설정 파일
-      - certbot-etc:/etc/letsencrypt         # 내부 볼륨
-      - certbot-www:/var/www/certbot         # 내부 볼륨
+    depends_on:
+      - certbot
 
-  web:
-    build: ./web                             # Git 내부에 있는 Dockerfile + 웹 소스
-    expose:
-      - "3000"
 
   certbot:
     image: certbot/certbot
     volumes:
-      - certbot-etc:/etc/letsencrypt
-      - certbot-www:/var/www/certbot
+      - challengeloc:/var/www/certbot
+      - certloc:/etc/letsencrypt
     entrypoint: >
-      sh -c "certbot certonly --webroot
-             --webroot-path=/var/www/certbot
-             --email your-hanharry2@gmail.com
-             --agree-tos --no-eff-email
-             -d www.피싱체크.com"
+      certbot certonly --webroot -w /var/www/certbot \
+      -d xn--hy1bt9b37a.com \
+      --email hanharry2@gmail.com \
+      --agree-tos \
+      --no-eff-email
+
+
+  web:
+    build: ./web
+    expose:
+      - "8080"
+
+
 
 volumes:
-  certbot-etc:
-  certbot-www:
+  certloc:
+  challengeloc:
