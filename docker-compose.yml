@@ -16,7 +16,8 @@ services:
     volumes:
       - challengeloc:/var/www/certbot:rw
       - certloc:/etc/letsencrypt:rw
-    entrypoint: "/bin/bash -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!; done;'}"
+    entrypoint: >
+      /bin/sh -c "trap exit TERM; while :; do certbot renew --quiet; sleep 12h & wait $!; done;"
 
 
 
