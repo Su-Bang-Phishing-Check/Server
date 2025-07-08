@@ -3,9 +3,8 @@ services:
   nginx:
     image: nginx
     volumes:
-      - certloc:/etc/letsencrypt:ro
       - challengeloc:/var/www/letsencrypt
-      - ./nginx/conf.d/default.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d/init.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
       - "443:443"
@@ -16,17 +15,7 @@ services:
     volumes:
       - certloc:/etc/letsencrypt:rw
       - challengeloc:/var/www/letsencrypt
-      - ./certbot/entrypoint.sh:/entrypoint.sh
-    entrypoint: ["bin/sh", "/entrypoint.sh"]
-
-
-
-  web:
-    build: ./web
-    expose:
-      - "8080"
-
-
+    command: certbot certonly --webroot --agree-tos -m hanharry2@gmail.com -w /var/www/letsencrypt -d xn--hw4bo2pv3cz9f.com
 
 volumes:
   certloc:

@@ -1,6 +1,8 @@
-sudo docker compose run --rm certbot certbot certonly --webroot --webroot-path=/var/www/certbot --email hanharry2@gmail.com --agree-tos --no-eff-email -d xn--hw4bo2pv3cz9f.com
+#volume을 만든다
+sudo docker volume create certloc
+sudo docker volume create challengeloc
 
-
+sudo docker compose -f get-ssl.yml up --abort-on-container-exit
 
 sudo docker compose up -d --build
 
