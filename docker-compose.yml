@@ -6,6 +6,7 @@ services:
       - certloc:/etc/letsencrypt:ro
       - challengeloc:/var/www/letsencrypt
       - ./nginx/conf.d/default.conf:/etc/nginx/nginx.conf
+      - ./web:/web
     ports:
       - "80:80"
       - "443:443"
