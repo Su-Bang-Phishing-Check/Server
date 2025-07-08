@@ -20,15 +20,6 @@ services:
       - ./certbot/entrypoint.sh:/entrypoint.sh
     entrypoint: ["/bin/sh", "/entrypoint.sh"]
 
-
-
-  web:
-    build: ./web
-    expose:
-      - "8080"
-
-
-
 volumes:
   certloc:
   challengeloc:
