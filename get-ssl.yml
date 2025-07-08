@@ -3,7 +3,7 @@ services:
   nginx:
     image: nginx
     volumes:
-      - challengeloc:/var/www/letsencrypt
+      - challengeloc:/var/www/certbot
       - ./nginx/conf.d/init.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
@@ -14,8 +14,8 @@ services:
     image: certbot/certbot
     volumes:
       - certloc:/etc/letsencrypt:rw
-      - challengeloc:/var/www/letsencrypt
-    command: certbot certonly --webroot --agree-tos -m hanharry2@gmail.com -w /var/www/letsencrypt -d xn--hw4bo2pv3cz9f.com
+      - challengeloc:/var/www/certbot
+    command: certonly --webroot --agree-tos -m hanharry2@gmail.com -w /var/www/certbot -d xn--hw4bo2pv3cz9f.com
 
 volumes:
   certloc:
