@@ -1,24 +1,41 @@
 services:
 
   nginx:
+    container_name: front_nginx
     image: nginx
     volumes:
       - certloc:/etc/letsencrypt:ro
       - challengeloc:/var/www/letsencrypt
-      - ./nginx/conf.d/default.conf:/etc/nginx/nginx.conf
-      - ./web:/web
+      - ./Front/nginx/conf.d/default.conf:/etc/nginx/nginx.conf
+      - ./Front/web:/web
     ports:
       - "80:80"
       - "443:443"
 
 
   certbot:
+    container_name: front_certbot
     image: certbot/certbot
     volumes:
       - certloc:/etc/letsencrypt:rw
       - challengeloc:/var/www/letsencrypt
-      - ./certbot/entrypoint.sh:/entrypoint.sh
+      - ./Front/certbot/entrypoint.sh:/entrypoint.sh
     entrypoint: ["/bin/sh", "/entrypoint.sh"]
+
+
+  backend:
+    container_name: backend_server
+    build: ./Back/Server
+    volumes:
+      - ./Back/Server:/app
+      - /app/node_modules
+
+  ai:
+    container_name: ai_server
+    build: ./Back/AI
+    volumes:
+      - ./Back/AI:/app
+
 
 volumes:
   certloc:
