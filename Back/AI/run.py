@@ -11,8 +11,9 @@ from urlextract import URLExtract
 import re
 
 model = AutoModelForSequenceClassification.from_pretrained("Kobert_Finetuned")
+print("모델 로딩 성공")
 tokenizer = AutoTokenizer.from_pretrained("monologg/kobert", trust_remote_code=True)
-
+print("토큰나이저 로딩 성공")
 extractor = URLExtract()
 #spacing = Spacing()
 
@@ -50,7 +51,7 @@ def clean_text(text):
 
     return original
 
-
+print("평가모드")
 model.eval()
 
 def test_eval(input):
