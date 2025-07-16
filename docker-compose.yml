@@ -35,7 +35,6 @@ services:
     build: ./Back/AI
     volumes:
       - ./Back/AI:/app
-      - /usr/local/lib
 
 
 volumes:
