@@ -29,6 +29,8 @@ services:
     volumes:
       - ./Back/Server:/app
       - /app/node_modules
+    ports:
+      - 3300:3300
 
   ai:
     container_name: ai_server
