@@ -37,7 +37,7 @@
 
         const data = await response.json();
 
-        if (data.text) {
+        if (data.result) {
           resultDiv.innerText = "분석 결과: " + data.result;
         } else {
           resultDiv.innerText = "응답에 분석 결과가 없습니다.";
