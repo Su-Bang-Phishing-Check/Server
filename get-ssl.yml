@@ -4,7 +4,7 @@ services:
     image: nginx
     volumes:
       - challengeloc:/var/www/certbot
-      - ./nginx/conf.d/init.conf:/etc/nginx/nginx.conf
+      - ./Front/nginx/conf.d/init.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
       - "443:443"
