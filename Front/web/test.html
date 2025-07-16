@@ -25,7 +25,7 @@
       resultDiv.innerText = "분석 중...";
 
       try {
-        const response = await fetch("http://backend_server:3000/analyse/text", {
+        const response = await fetch("http://backend_server:3300/analyse/text", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
