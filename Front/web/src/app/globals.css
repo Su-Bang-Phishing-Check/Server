@@ -1,0 +1,26 @@
+@import 'tailwindcss';
+
+:root {
+  /* 기본 배경 & 폰트 */
+  --background: #ffffff;
+  --foreground: #000000;
+
+  /* 배경 색상 */
+  --bg-1: #3177ff;
+  --bg-2: #cee3ff;
+  --bg-3: #85baff;
+
+  /* 강조 색상 */
+  --highlight-1: #ff0000;
+
+  /* 텍스트 색상 */
+  --text-1: #3177ff;
+  --text-2: #5f5f5f;
+  --text-3: #959595;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Pretendard', Arial, sans-serif;
+}

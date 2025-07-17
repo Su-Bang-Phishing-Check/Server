@@ -7,7 +7,7 @@ services:
       - certloc:/etc/letsencrypt:ro
       - challengeloc:/var/www/letsencrypt
       - ./Front/nginx/conf.d/default.conf:/etc/nginx/nginx.conf
-      - ./Front/web:/web
+  
     ports:
       - "80:80"
       - "443:443"
@@ -35,6 +35,12 @@ services:
     build: ./Back/AI
     volumes:
       - ./Back/AI:/app
+
+  front:
+    container_name: front_server
+    bulid: ./Front/web
+    volumes:
+      - ./Front/web:/app
 
 
 volumes:

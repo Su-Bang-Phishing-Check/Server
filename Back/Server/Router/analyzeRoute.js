@@ -5,5 +5,4 @@ const router = express.Router();
 
 router.post('/text', analyse_text);
 
-
 export default router;
