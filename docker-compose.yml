@@ -35,12 +35,14 @@ services:
     build: ./Back/AI
     volumes:
       - ./Back/AI:/app
+  
 
   front:
     container_name: front_server
-    bulid: ./Front/web
+    build: ./Front/web
     volumes:
       - ./Front/web:/app
+      - ./app/node_modules
 
 
 volumes:
