@@ -4,7 +4,7 @@ services:
     container_name: front_nginx
     image: nginx
     volumes:
-      - ./Front/certbot/certs:/etc/letsencrypt:ro
+      - certloc:/etc/letsencrypt:ro
       - challengeloc:/var/www/letsencrypt
       - ./Front/nginx/conf.d/default.conf:/etc/nginx/nginx.conf
   
@@ -17,7 +17,7 @@ services:
     container_name: front_certbot
     image: certbot/certbot
     volumes:
-      - ./Front/certbot/certs:/etc/letsencrypt:rw
+      - certloc:/etc/letsencrypt:rw
       - challengeloc:/var/www/letsencrypt
       - ./Front/certbot/entrypoint.sh:/entrypoint.sh
     entrypoint: ["/bin/sh", "/entrypoint.sh"]
@@ -42,7 +42,7 @@ services:
     build: ./Front/web
     volumes:
       - ./Front/web:/app
-      - ./app/node_modules
+      - /app/node_modules
 
 
 volumes:
