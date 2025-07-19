@@ -13,7 +13,7 @@ services:
   certbot:
     image: certbot/certbot
     volumes:
-      - certloc:/etc/letsencrypt:rw
+      - ./Front/certbot/certs:/etc/letsencrypt:rw
       - challengeloc:/var/www/certbot
     command: certonly --webroot --agree-tos -m hanharry2@gmail.com -w /var/www/certbot -d xn--hw4bo2pv3cz9f.com
 
