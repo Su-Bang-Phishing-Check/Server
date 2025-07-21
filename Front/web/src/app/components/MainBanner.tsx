@@ -1,7 +1,7 @@
-'use client';
-import Button from './Button';
+"use client";
+import Button from "./Button";
 
-export default function MainBanner() {
+const MainBanner = () => {
   return (
     <section className="flex flex-col justify-center p-6 gap-y-6">
       <div>
@@ -25,4 +25,6 @@ export default function MainBanner() {
       </div>
     </section>
   );
-}
+};
+
+export default MainBanner;

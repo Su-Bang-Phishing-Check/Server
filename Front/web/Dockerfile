@@ -14,6 +14,6 @@ COPY . .
 # 5. 프로덕션 빌드
 #RUN npm run build
 
-# 6. 앱 실행 (디버깅모드)
+# 6. 앱 실행
 CMD ["npm", "run", "dev"]
 

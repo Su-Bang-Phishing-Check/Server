@@ -1,17 +1,23 @@
 from transformers import AutoTokenizer
 from transformers import AutoModelForSequenceClassification
-from transformers import Trainer
-from transformers import TrainingArguments
-import numpy as np
-import evaluate
 import torch
 from urlextract import URLExtract
 import re
+import torch.nn.functional as F
+
+tokenizer = AutoTokenizer.from_pretrained("monologg/kobert", trust_remote_code=True)
+model = AutoModelForSequenceClassification.from_pretrained("py_module/Kobert_Finetuned")
+
+print("토큰나이저 로딩 성공")
+print("모델 로딩 성공")
 
 # 전처리 함수
+print("clean text 실행")
 def clean_text(text):
+    extractor = URLExtract()
+    
     original = text
-
+    
     # 1. URL → [url]
     urls = extractor.find_urls(original)
     for url in urls:
@@ -42,18 +48,21 @@ def clean_text(text):
 
     return original
 
+print("test eval 실행")
 def test_eval(input):
+
     text = tokenizer(input, return_tensors='pt', padding=True, truncation=True)
-    model = AutoModelForSequenceClassification.from_pretrained("Kobert_Finetuned")
-    print("모델 로딩 성공")
-    tokenizer = AutoTokenizer.from_pretrained("monologg/kobert", trust_remote_code=True)
-    print("토큰나이저 로딩 성공")
+ 
     model.eval()
     print("평가모드")
-    extractor = URLExtract()
-    #spacing = Spacing()
+
     with torch.no_grad():
         ret = model(**text)
-        ret = ret.logits
-        return torch.argmax(ret, dim=-1).item()
+        output = ret.logits
+        probs = F.softmax(output, dim=-1)
+        
+        pred = torch.argmax(probs, dim=-1).item()
+        confidence = probs[0][pred].item()
+
+    return pred, confidence
     

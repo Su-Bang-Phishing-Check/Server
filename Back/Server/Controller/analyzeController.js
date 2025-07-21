@@ -2,7 +2,7 @@ import axios from 'axios';
 import FormData from 'form-data';
 
 const AI_server = axios.create({
-    baseURL: "http://ai_server:3100/",
+    baseURL: "http://ai_server:4100/",
     timeout: 3000
 })
 
@@ -32,9 +32,7 @@ export async function analyse_text(req, res)
 
         console.log("done!")
 
-        return res.status(201).json({
-            result: result.data.result
-        });
+        return res.status(201).json(result.data);
 
     } catch(err) {
         console.error("error: ", err);

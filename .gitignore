@@ -1,3 +1,4 @@
 /Back/Server/node_modules
 /.conda
-/Back/AI/module/Kobert_Finetuned
+/Back/AI/py_module/Kobert_Finetuned
+/Back/AI/py_module/__pycache__
