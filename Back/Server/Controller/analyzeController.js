@@ -1,4 +1,5 @@
 import axios from 'axios';
+import FormData from 'form-data';
 
 const AI_server = axios.create({
     baseURL: "http://ai_server:3100/",
@@ -39,6 +40,36 @@ export async function analyse_text(req, res)
         console.error("error: ", err);
         return res.status(404).json({
             message: "error"
+        });
+    }
+}
+
+export async function analyse_image(req, res)
+{
+    try{
+        let form = new FormData();
+        form.append('image', req.file.buffer, {
+            filename: `${Date.now()}${Path2D.extname(req.file.originalname)}`,
+            contentType: req.file.mimetype
+        });
+
+        const ai_res = await axios.request({
+            headers: form.getHeaders,
+            url: '/upload',
+            data: form,
+            method: 'post'
+        });
+
+        console.log("upload success!");
+
+        const ai_res_data = ai_res.data;
+
+        return res.status(201).json(data);
+        
+    } catch(err) {
+        console.log(err);
+        return res.status(401).json({
+            error: err
         });
     }
 }
