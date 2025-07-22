@@ -12,7 +12,7 @@ def post_text():
     print(pred)
 
     ret_json = {
-        "isScam": "true" if pred==1 else "false",
+        "isScam": 1 if pred==1 else 0,
         "score": confidence
     }
 
