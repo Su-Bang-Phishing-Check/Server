@@ -2,3 +2,4 @@
 /.conda
 /Back/AI/py_module/Kobert_Finetuned
 /Back/AI/py_module/__pycache__
+/Front/web/.env
