@@ -1,8 +1,15 @@
 import express from 'express';
 import analyseRoutes from './Router/analyzeRoute.js'
+import cors from 'cors';
+
 const app = express();
 app.use(express.json());
 
+
+app.use(cors({
+    origin: 'https://xn--hw4bo2pv3cz9f.com',
+    credentials: true
+}));
 app.use('/analyse', analyseRoutes);
 
 
