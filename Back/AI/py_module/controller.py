@@ -12,8 +12,8 @@ def post_text():
     print(pred)
 
     ret_json = {
-        "result": "true" if pred==1 else "false",
-        "accuracy": confidence
+        "isScam": "true" if pred==1 else "false",
+        "score": confidence
     }
 
     return jsonify(ret_json)
