@@ -1,7 +1,8 @@
 print("시작")
 from flask import jsonify, request
 from .smishClassifier import clean_text, test_eval
-
+from werkzeug.utils import secure_filename
+from .process_image import ImagetoText
 
 def post_text():
     body = request.get_json()
@@ -14,6 +15,18 @@ def post_text():
     ret_json = {
         "isScam": 1 if pred==1 else 0,
         "score": confidence
+    }
+
+    return jsonify(ret_json)
+
+
+def post_image():
+    file = request.files['image']
+    file.save(f"./uploads/{secure_filename(file.filename)}")
+    res = ImagetoText(file.filename)
+    #디버깅용
+    ret_json = {
+        "message": "success"
     }
 
     return jsonify(ret_json)
