@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
-from py_module.controller import post_text
+from py_module.controller import post_text, post_image
 
 app = Flask(__name__)
 
 app.add_url_rule('/text', view_func=post_text, methods = ['POST'])
-#app.add_url_rule('/image', view_func=, methods= ['POST'])
+app.add_url_rule('/image', view_func=post_image, methods= ['POST'])
 
 
 if __name__=='__main__':

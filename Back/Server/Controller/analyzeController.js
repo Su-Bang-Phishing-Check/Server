@@ -1,5 +1,6 @@
 import axios from 'axios';
 import FormData from 'form-data';
+import path from 'path';
 
 const AI_server = axios.create({
     baseURL: "http://ai_server:4100/",
@@ -47,13 +48,13 @@ export async function analyse_image(req, res)
     try{
         let form = new FormData();
         form.append('image', req.file.buffer, {
-            filename: `${Date.now()}${Path2D.extname(req.file.originalname)}`,
+            filename: `${Date.now()}${path.extname(req.file.originalname)}`,
             contentType: req.file.mimetype
         });
 
-        const ai_res = await axios.request({
-            headers: form.getHeaders,
-            url: '/upload',
+        const ai_res = await AI_server.request({
+            headers: form.getHeaders(),
+            url: 'image',
             data: form,
             method: 'post'
         });
