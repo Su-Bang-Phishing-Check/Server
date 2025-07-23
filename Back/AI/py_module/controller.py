@@ -22,8 +22,10 @@ def post_text():
 
 def post_image():
     file = request.files['image']
-    file.save(f"./uploads/{secure_filename(file.filename)}")
-    res = ImagetoText(file.filename)
+    filename = secure_filename(file.filename)
+    filepath = f"./uploads/{filename}"
+    file.save(filepath)
+    res = ImagetoText(filename)
     #디버깅용
     ret_json = {
         "message": "success"
