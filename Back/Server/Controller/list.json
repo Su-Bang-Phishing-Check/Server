@@ -4,10 +4,22 @@
     "question": "Q1. 어떤 방식으로 연락을 받았나요?",
     "type": "multi",
     "options": [
-      "전화",
-      "문자/카카오톡/기타 메신저",
-      "이메일",
-      "기타 (잘 모르겠음 / 기억나지 않음)"
+      {
+        "label": "전화",
+        "has_followup": false
+      },
+      {
+        "label": "문자/카카오톡/기타 메신저",
+        "has_followup": false
+      },
+      {
+        "label": "이메일",
+        "has_followup": false
+      },
+      {
+        "label": "기타 (잘 모르겠음 / 기억나지 않음)",
+        "has_followup": false
+      }
     ]
   },
   {
@@ -17,41 +29,73 @@
     "options": [
       {
         "label": "자녀/가족 또는 지인",
+        "has_followup": true,
         "followup": {
           "type": "multi",
           "question": "Q2.1. 자세히 알려주세요 (1번 선택)",
-          "options": ["자녀", "가족 또는 지인"]
+          "options": [
+            { 
+              "label": "자녀",
+              "has_followup": false
+            },
+            {
+              "label": "가족 또는 지인",
+              "has_followup": false
+            }
+          ]
         }
       },
       {
         "label": "정부/검찰 / 경찰 / 금융감독원 /기관",
+        "has_followup": true,
         "followup": {
           "type": "multi",
           "question": "Q2.2. 자세히 알려주세요 (2번 선택)",
           "options": [
-            "검찰 / 경찰 / 금융감독원",
-            "금융기관 (은행 / 보험사 / 카드사)",
-            "대출 기관",
-            "정부 / 공공기관"
+            {
+              "label":"검찰 / 경찰 / 금융감독원",
+              "has_followup": false
+            },
+            {
+              "label":"금융기관 (은행 / 보험사 / 카드사)",
+              "has_followup": false
+            },
+            {
+              "label":"대출 기관",
+              "has_followup": false
+            },
+            {
+              "label":"정부 / 공공기관",
+              "has_followup": false
+            }
           ]
         }
       },
       {
         "label": "택배 / 쇼핑몰/회사 / 기업 인사팀",
+        "has_followup": true,
         "followup": {
           "type": "multi",
           "question": "Q2.3. 자세히 알려주세요 (3번 선택)",
           "options": [
-            "택배 / 쇼핑몰",
-            "회사 / 기업 인사팀"
+            {
+              "label":"택배 / 쇼핑몰",
+              "has_followup": false
+            },
+            {
+              "label":"회사 / 기업 인사팀",
+              "has_followup": false
+            }
           ]
         }
       },
       {
-        "label": "전화 ARS"
+        "label": "전화 ARS",
+        "has_followup": false
       },
       {
-        "label": "모르겠음 (신원 불분명 / 말이 모호했음)"
+        "label": "모르겠음 (신원 불분명 / 말이 모호했음)",
+        "has_followup": false
       }
     ]
   },
@@ -62,92 +106,222 @@
     "options": [
       {
         "label": "자녀",
+        "has_followup": true,
         "followup": [
-          "휴대폰이 고장 나서 다른 번호로 연락했다고 했어요",
-          "병원에 입원해서 치료비가 필요하다고 했어요",
-          "사고를 당해서 급하게 돈이 필요하다고 했어요",
-          "수술비를 대신 보내달라고 했어요",
-          "납치를 당했다며 협박을 했어요"
+          {
+            "label":"휴대폰이 고장 나서 다른 번호로 연락했다고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"병원에 입원해서 치료비가 필요하다고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"사고를 당해서 급하게 돈이 필요하다고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"수술비를 대신 보내달라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"납치를 당했다며 협박을 했어요",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "가족 또는 지인",
+        "has_followup": true,
         "followup": [
-          "급하게 송금을 요청했어요",
-          "문장이 부자연스럽거나 외국인 말투 같았어요",
-          "청첩장이나 부고장 링크를 보냈어요",
-          "계좌번호를 보내면서 대신 입금해달라고 했어요"
+          {
+            "label":"급하게 송금을 요청했어요",
+            "has_followup": false
+          },
+          {
+            "label":"문장이 부자연스럽거나 외국인 말투 같았어요",
+            "has_followup": false
+          },
+          {
+            "label":"청첩장이나 부고장 링크를 보냈어요",
+            "has_followup": false
+          },
+          {
+            "label":"계좌번호를 보내면서 대신 입금해달라고 했어요",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "검찰 / 경찰 / 금융감독원",
+        "has_followup": true,
         "followup": [
-          "범죄 수사 협조를 요청하며 돈을 보내라고 했어요",
-          "내 계좌가 범죄에 연루됐다며 보안 앱을 설치하라고 했어요",
-          "현금 전달이나 ATM 사용을 요구했어요",
-          "피해자 보호라며 통장을 대조하자고 했어요"
+          {
+            "label":"범죄 수사 협조를 요청하며 돈을 보내라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"내 계좌가 범죄에 연루됐다며 보안 앱을 설치하라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"현금 전달이나 ATM 사용을 요구했어요",
+            "has_followup": false
+          },
+          {
+            "label":"피해자 보호라며 통장을 대조하자고 했어요",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "금융기관 (은행 / 보험사 / 카드사)",
+        "has_followup": true,
         "followup": [
-          "금융사 고객센터라고 하며 카드 결제 확인을 요청했어요",
-          "본인 인증을 위해 계좌번호나 비밀번호를 요구했어요",
-          "개인정보나 OTP 입력을 유도했어요",
-          "해외 결제 내역이라며 취소하겠다고 했어요"
+          {
+            "label":"금융사 고객센터라고 하며 카드 결제 확인을 요청했어요",
+            "has_followup": false
+          },
+          {
+            "label":"본인 인증을 위해 계좌번호나 비밀번호를 요구했어요",
+            "has_followup": false
+          },
+          {
+            "label":"개인정보나 OTP 입력을 유도했어요",
+            "has_followup": false
+          },
+          {
+            "label":"해외 결제 내역이라며 취소하겠다고 했어요",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "대출기관",
+        "has_followup": true,
         "followup": [
-          "대출이 가능하다며 수수료를 선입금하라고 했어요",
-          "신용등급을 올려야 한다며 앱 설치를 요구했어요",
-          "기존 대출을 상환하면 추가 대출이 가능하다고 했어요",
-          "개인정보를 제출해야 대출이 된다고 했어요"
+          {
+            "label":"대출이 가능하다며 수수료를 선입금하라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"신용등급을 올려야 한다며 앱 설치를 요구했어요",
+            "has_followup": false
+          },
+          {
+            "label":"기존 대출을 상환하면 추가 대출이 가능하다고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"개인정보를 제출해야 대출이 된다고 했어요",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "택배 / 쇼핑몰",
+        "has_followup": true,
         "followup": [
-          "택배가 반송됐다며 링크를 클릭하라고 했어요",
-          "미납 배송비를 결제하라고 했어요",
-          "해외배송 조회 링크를 보냈어요",
-          "결제 내역 확인 문자를 보냈어요"
+          {
+            "label":"택배가 반송됐다며 링크를 클릭하라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"미납 배송비를 결제하라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"해외배송 조회 링크를 보냈어요",
+            "has_followup": false
+          },
+          {
+            "label":"결제 내역 확인 문자를 보냈어요",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "회사 / 기업 인사팀",
+        "has_followup": true,
         "followup": [
-          "이력서를 보내달라고 했어요",
-          "면접 안내라며 앱이나 링크를 열어보라고 했어요",
-          "개인정보 입력을 요구했어요",
-          "채용 담당자라며 급히 연락했다고 했어요"
+          {
+            "label":"이력서를 보내달라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"면접 안내라며 앱이나 링크를 열어보라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"개인정보 입력을 요구했어요",
+            "has_followup": false
+          },
+          {
+            "label":"채용 담당자라며 급히 연락했다고 했어요",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "정부 / 공공기관",
+        "has_followup": true,
         "followup": [
-          "세금 환급 신청을 하라고 했어요",
-          "재난지원금이나 보조금 지급을 안내했어요",
-          "건강보험 환급이 가능하다고 했어요",
-          "주민등록번호 등 개인정보를 요구했어요"
+          {
+            "label":"세금 환급 신청을 하라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"재난지원금이나 보조금 지급을 안내했어요",
+            "has_followup": false
+          },
+          {
+            "label":"건강보험 환급이 가능하다고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"주민등록번호 등 개인정보를 요구했어요",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "전화 ARS",
+        "has_followup": true,
         "followup": [
-          "카드 결제, 은행 송금 등 내용을 기계음으로 안내했어요",
-          "버튼을 누르라고 해서 누른 적이 있어요",
-          "상담원 연결을 눌렀더니 누군가 전화를 받았어요"
+          {
+            "label":"카드 결제, 은행 송금 등 내용을 기계음으로 안내했어요",
+            "has_followup": false
+          },
+          {
+            "label":"버튼을 누르라고 해서 누른 적이 있어요",
+            "has_followup": false
+          },
+          {
+            "label":"상담원 연결을 눌렀더니 누군가 전화를 받았어요",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "모르겠음(신원 불분명 / 말이 모호했음)",
+        "has_followup": true,
         "followup": [
-          "누구인지 명확히 말하지 않고 금전을 요구했어요",
-          "링크나 앱 설치를 유도했어요",
-          "이상한 말투와 흐름이 반복됐어요",
-          "전화가 끊기고 다시 걸려왔어요"
+          {
+            "label":"누구인지 명확히 말하지 않고 금전을 요구했어요",
+            "has_followup": false
+          },
+          {
+            "label":"링크나 앱 설치를 유도했어요",
+            "has_followup": false
+          },
+          {
+            "label":"이상한 말투와 흐름이 반복됐어요",
+            "has_followup": false
+          },
+          {
+            "label":"전화가 끊기고 다시 걸려왔어요",
+            "has_followup": false
+          }
         ]
       }
     ]
@@ -159,40 +333,79 @@
     "options": [
       {
         "label": "금전적 요구",
+        "has_followup": true,
         "followup": [
-          "송금이나 입금 요구",
-          "ATM기 사용 요구",
-          "OTP 또는 보안카드 번호 요구",
-          "상대방이 직접 돈을 가지러 온다고 함"
+          {
+            "label":"송금이나 입금 요구",
+            "has_followup": false
+          },
+          {
+            "label":"ATM기 사용 요구",
+            "has_followup": false
+          },
+          {
+            "label":"OTP 또는 보안카드 번호 요구",
+            "has_followup": false
+          },
+          {
+            "label":"상대방이 직접 돈을 가지러 온다고 함",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "기기 및 앱 활용 요구",
+        "has_followup": true,
         "followup": [
-          "앱 설치 요구",
-          "링크를 클릭 유도"
+          {
+            "label":"앱 설치 요구",
+            "has_followup": false
+          },
+          {
+            "label":"링크를 클릭 유도",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "민감 정보 요구",
+        "has_followup": true,
         "followup": [
-          "개인정보를 입력 요구",
-          "이체 내역이나 영수증 요청",
-          "신분증, 통장, 얼굴 사진 요청"
+          {
+            "label":"개인정보를 입력 요구",
+            "has_followup": false
+          },
+          {
+            "label":"이체 내역이나 영수증 요청",
+            "has_followup": false
+          },
+          {
+            "label":"신분증, 통장, 얼굴 사진 요청",
+            "has_followup": false
+          }
         ]
       },
       {
         "label": "통화/상황 통제",
+        "has_followup": true,
         "followup": [
-          "통화 유지 요청",
-          "조사, 협조, 점검에 따르라고 함"
+          {
+            "label":"통화 유지 요청",
+            "has_followup": false
+          },
+          {
+            "label":"조사, 협조, 점검에 따르라고 함",
+            "has_followup": false
+          }
         ]
       },
       {
-        "label": "거절하거나 의심하자 화를 냄"
+        "label": "거절하거나 의심하자 화를 냄",
+        "has_followup": false
       },
       {
-        "label": "기억이 안남"
+        "label": "기억이 안남",
+        "has_followup": false
       }
     ]
   }

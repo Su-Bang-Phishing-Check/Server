@@ -1,5 +1,6 @@
 import express from 'express';
 import analyseRoutes from './Router/analyzeRoute.js'
+import {chatbot} from './Controller/chatbotController.js'
 import cors from 'cors';
 
 const app = express();
@@ -11,8 +12,10 @@ app.use(cors({
     credentials: true
 }));
 app.use('/analyse', analyseRoutes);
+app.post('/chatbot', chatbot);
 
 
 app.listen(3300, '0.0.0.0', ()=>{
     console.log("backend server started");
 });
+
