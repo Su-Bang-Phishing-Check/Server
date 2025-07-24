@@ -36,11 +36,13 @@
           "options": [
             { 
               "label": "자녀",
-              "has_followup": false
+              "has_followup": false,
+              "next_2": 0
             },
             {
               "label": "가족 또는 지인",
-              "has_followup": false
+              "has_followup": false,
+              "next_2": 1
             }
           ]
         }
@@ -54,25 +56,29 @@
           "options": [
             {
               "label":"검찰 / 경찰 / 금융감독원",
-              "has_followup": false
+              "has_followup": false,
+              "next_2": 2
             },
             {
               "label":"금융기관 (은행 / 보험사 / 카드사)",
-              "has_followup": false
+              "has_followup": false,
+              "next_2": 3
             },
             {
               "label":"대출 기관",
-              "has_followup": false
+              "has_followup": false,
+              "next_2": 4
             },
             {
               "label":"정부 / 공공기관",
-              "has_followup": false
+              "has_followup": false,
+              "next_2": 5
             }
           ]
         }
       },
       {
-        "label": "택배 / 쇼핑몰/회사 / 기업 인사팀",
+        "label": "택배 / 쇼핑몰, 회사 / 기업 인사팀",
         "has_followup": true,
         "followup": {
           "type": "multi",
@@ -80,34 +86,36 @@
           "options": [
             {
               "label":"택배 / 쇼핑몰",
-              "has_followup": false
+              "has_followup": false,
+              "next_2": 6
             },
             {
               "label":"회사 / 기업 인사팀",
-              "has_followup": false
+              "has_followup": false,
+              "next_2": 7
             }
           ]
         }
       },
       {
         "label": "전화 ARS",
-        "has_followup": false
+        "has_followup": false,
+        "next_2": 8
       },
       {
         "label": "모르겠음 (신원 불분명 / 말이 모호했음)",
-        "has_followup": false
+        "has_followup": false,
+        "next_2": 9
       }
     ]
   },
   {
     "step": 3,
-    "question": "Q3. 어떤 내용이었나요?",
     "type": "conditional-multi",
     "options": [
       {
-        "label": "자녀",
-        "has_followup": true,
-        "followup": [
+        "question": "Q3. 어떤 내용이었나요? - 자녀",
+        "options": [
           {
             "label":"휴대폰이 고장 나서 다른 번호로 연락했다고 했어요",
             "has_followup": false
@@ -131,9 +139,8 @@
         ]
       },
       {
-        "label": "가족 또는 지인",
-        "has_followup": true,
-        "followup": [
+        "question": "Q3. 어떤 내용이었나요? - 가족 또는 지인",
+        "options": [
           {
             "label":"급하게 송금을 요청했어요",
             "has_followup": false
@@ -153,9 +160,8 @@
         ]
       },
       {
-        "label": "검찰 / 경찰 / 금융감독원",
-        "has_followup": true,
-        "followup": [
+        "question": "Q3. 어떤 내용이었나요? - 검찰 / 경찰 / 금융감독원",
+        "options": [
           {
             "label":"범죄 수사 협조를 요청하며 돈을 보내라고 했어요",
             "has_followup": false
@@ -175,9 +181,8 @@
         ]
       },
       {
-        "label": "금융기관 (은행 / 보험사 / 카드사)",
-        "has_followup": true,
-        "followup": [
+        "question": "Q3. 어떤 내용이었나요? - 금융기관 (은행 / 보험사 /카드사)",
+        "options": [
           {
             "label":"금융사 고객센터라고 하며 카드 결제 확인을 요청했어요",
             "has_followup": false
@@ -197,9 +202,8 @@
         ]
       },
       {
-        "label": "대출기관",
-        "has_followup": true,
-        "followup": [
+        "question": "Q3. 어떤 내용이었나요? - 대출기관",
+        "options": [
           {
             "label":"대출이 가능하다며 수수료를 선입금하라고 했어요",
             "has_followup": false
@@ -219,53 +223,8 @@
         ]
       },
       {
-        "label": "택배 / 쇼핑몰",
-        "has_followup": true,
-        "followup": [
-          {
-            "label":"택배가 반송됐다며 링크를 클릭하라고 했어요",
-            "has_followup": false
-          },
-          {
-            "label":"미납 배송비를 결제하라고 했어요",
-            "has_followup": false
-          },
-          {
-            "label":"해외배송 조회 링크를 보냈어요",
-            "has_followup": false
-          },
-          {
-            "label":"결제 내역 확인 문자를 보냈어요",
-            "has_followup": false
-          }
-        ]
-      },
-      {
-        "label": "회사 / 기업 인사팀",
-        "has_followup": true,
-        "followup": [
-          {
-            "label":"이력서를 보내달라고 했어요",
-            "has_followup": false
-          },
-          {
-            "label":"면접 안내라며 앱이나 링크를 열어보라고 했어요",
-            "has_followup": false
-          },
-          {
-            "label":"개인정보 입력을 요구했어요",
-            "has_followup": false
-          },
-          {
-            "label":"채용 담당자라며 급히 연락했다고 했어요",
-            "has_followup": false
-          }
-        ]
-      },
-      {
-        "label": "정부 / 공공기관",
-        "has_followup": true,
-        "followup": [
+        "question": "Q3. 어떤 내용이었나요? - 정부 / 공공기관",
+        "options": [
           {
             "label":"세금 환급 신청을 하라고 했어요",
             "has_followup": false
@@ -285,9 +244,50 @@
         ]
       },
       {
-        "label": "전화 ARS",
-        "has_followup": true,
-        "followup": [
+        "question": "Q3. 어떤 내용이었나요? - 택배 / 쇼핑몰",
+        "options": [
+          {
+            "label":"택배가 반송됐다며 링크를 클릭하라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"미납 배송비를 결제하라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"해외배송 조회 링크를 보냈어요",
+            "has_followup": false
+          },
+          {
+            "label":"결제 내역 확인 문자를 보냈어요",
+            "has_followup": false
+          }
+        ]
+      },
+      {
+        "question": "Q3. 어떤 내용이었나요? - 회사 / 기업 인사팀",
+        "options": [
+          {
+            "label":"이력서를 보내달라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"면접 안내라며 앱이나 링크를 열어보라고 했어요",
+            "has_followup": false
+          },
+          {
+            "label":"개인정보 입력을 요구했어요",
+            "has_followup": false
+          },
+          {
+            "label":"채용 담당자라며 급히 연락했다고 했어요",
+            "has_followup": false
+          }
+        ]
+      },
+      {
+        "question": "Q3. 어떤 내용이었나요? - 전화 ARS",
+        "options": [
           {
             "label":"카드 결제, 은행 송금 등 내용을 기계음으로 안내했어요",
             "has_followup": false
@@ -303,9 +303,8 @@
         ]
       },
       {
-        "label": "모르겠음(신원 불분명 / 말이 모호했음)",
-        "has_followup": true,
-        "followup": [
+        "question": "Q3. 어떤 내용이었나요? - 모르겠음(신원 불분명 / 말이 모호했음)",
+        "options": [
           {
             "label":"누구인지 명확히 말하지 않고 금전을 요구했어요",
             "has_followup": false
@@ -334,7 +333,8 @@
       {
         "label": "금전적 요구",
         "has_followup": true,
-        "followup": [
+        "question": "Q4.1 자세히 알려주세요 - 금전적 요구",
+        "options": [
           {
             "label":"송금이나 입금 요구",
             "has_followup": false
@@ -356,7 +356,8 @@
       {
         "label": "기기 및 앱 활용 요구",
         "has_followup": true,
-        "followup": [
+        "question": "Q4. 자세히 알려주세요 - 기기 및 앱 활용 요구",
+        "options": [
           {
             "label":"앱 설치 요구",
             "has_followup": false
@@ -370,7 +371,8 @@
       {
         "label": "민감 정보 요구",
         "has_followup": true,
-        "followup": [
+        "question": "Q4. 자세히 알려주세요 - 민감 정보 요구",
+        "options": [
           {
             "label":"개인정보를 입력 요구",
             "has_followup": false
@@ -388,7 +390,8 @@
       {
         "label": "통화/상황 통제",
         "has_followup": true,
-        "followup": [
+        "question": "Q4. 자세히 알려주세요 - 통화/상황 통제",
+        "options": [
           {
             "label":"통화 유지 요청",
             "has_followup": false
