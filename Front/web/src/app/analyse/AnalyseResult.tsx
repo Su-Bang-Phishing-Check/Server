@@ -13,7 +13,7 @@ const AnalyseResult = ({ result }: AnalyseResultProps) => {
               ? '🚨 사기 문자입니다.'
               : '✅ 정상적인 문자입니다.'}
           </p>
-          <p>신뢰 점수: {result.score.toFixed(2)}%</p>
+          <p>신뢰 점수: {(result.score * 100).toFixed(4)}%</p>
         </div>
       ) : (
         <p className="text-gray-500">분석 결과가 없습니다.</p>
