@@ -46,7 +46,7 @@ services:
 
 
   DB:
-    container_name: db
+    container_name: pscheck_db
     image: mysql:8
     environment:
       MYSQL_ROOT_PASSWORD: root
