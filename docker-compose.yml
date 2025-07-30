@@ -29,6 +29,8 @@ services:
     volumes:
       - ./Back/Server:/app
       - /app/node_modules
+    depends_on:
+      - DB
 
   ai:
     container_name: ai_server
@@ -54,7 +56,7 @@ services:
       TZ: Asia/Seoul
 
     volumes:
-      - app_data: /var/lib/mysql
+      - app_data:/var/lib/mysql
       - ./DB/init.sql:/docker-entrypoint-initdb.d/init.sql
 
 
@@ -63,3 +65,4 @@ services:
 volumes:
   certloc:
   challengeloc:
+  app_data:

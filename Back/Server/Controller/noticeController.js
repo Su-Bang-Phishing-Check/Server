@@ -50,8 +50,9 @@ export async function pageNotice(req, res){
         }
         
         let pageNo = req.query.pageNo;
+        console.log(pageNo);
 
-        if(pageNo==null) pageNo=1;
+        if(!pageNo) pageNo=1;
 
         pageNo = parseInt(pageNo);  //페이지 번호 추출
 
