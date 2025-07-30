@@ -1,7 +1,5 @@
 import questions from './data/list.json' with {type: 'json'};
 
-
-
 export async function chatbot(req, res)
 {
     try{
@@ -169,8 +167,3 @@ export async function chatbot(req, res)
         });
     }
 }
-
-
-console.log(questions[0].question);
-for(const option of questions[0].options)
-    console.log(option.label);
