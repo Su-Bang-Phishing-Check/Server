@@ -2,6 +2,10 @@ import express from 'express';
 import analyseRoutes from './Router/analyzeRoute.js'
 import {chatbot} from './Controller/chatbotController.js'
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 
 const app = express();
 app.use(express.json());

@@ -1,7 +1,7 @@
-import MainBanner from './components/MainBanner';
-import Notice from './components/Notice';
-import ChatbotBanner from './components/ChatbotBanner';
-import MessageBanner from './components/MessageBanner';
+import MainBanner from "./components/MainBanner";
+import Notice from "./components/Notice";
+import ChatbotBanner from "./components/ChatbotBanner";
+import MessageBanner from "./components/MessageBanner";
 
 const Home = () => {
   return (

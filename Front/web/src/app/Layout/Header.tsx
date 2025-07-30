@@ -1,17 +1,17 @@
-'use client';
-import { useRouter } from 'next/navigation';
+"use client";
+import { useRouter } from "next/navigation";
 
-import { FiMenu } from 'react-icons/fi';
+import { FiMenu } from "react-icons/fi";
 
 export default function Header() {
   const router = useRouter();
 
   const handleLogoClick = () => {
-    router.push('/');
+    router.push("/");
   };
 
   const handleMenuClick = () => {
-    alert('메뉴 클릭됨');
+    alert("메뉴 클릭됨");
   };
 
   return (

@@ -1,4 +1,4 @@
-import questions from './list.json' with {type: 'json'};
+import questions from './data/list.json' with {type: 'json'};
 
 
 
@@ -6,6 +6,8 @@ export async function chatbot(req, res)
 {
     try{
         const data = req.body;
+
+        console.log(req.body);
 
         let new_data = {};
         new_data.temp = {};

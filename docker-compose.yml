@@ -45,6 +45,21 @@ services:
       - /app/node_modules
 
 
+  DB:
+    container_name: db
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      LANG: C.UTF-8
+      TZ: Asia/Seoul
+
+    volumes:
+      - app_data: /var/lib/mysql
+      - ./DB/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+
+
+
 volumes:
   certloc:
   challengeloc:
