@@ -10,6 +10,6 @@ const upload = multer({storage: mstorage});
 const router = express.Router();
 
 router.post('/text', analyse_text);
-router.post('/image', upload.single('image'), analyse_image);
+router.post('/image', upload.array('images'), analyse_image);
 
 export default router;

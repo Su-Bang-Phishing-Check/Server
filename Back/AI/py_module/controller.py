@@ -21,14 +21,34 @@ def post_text():
 
 
 def post_image():
-    file = request.files['image']
-    filename = secure_filename(file.filename)
-    filepath = f"./uploads/{filename}"
-    file.save(filepath)
-    res = ImagetoText(filename)
-    #디버깅용
+    images = request.files.getlist('images')
+    filepaths = []
+
+    for image in images:
+        filename = secure_filename(image.filename)
+        filepath = f"./uploads/{filename}"
+        filepaths.append(filepath)
+        image.save(filepath)
+
     ret_json = {
-        "message": "success"
+        "data": []
     }
+    
+    for filepath in filepaths:
+        texts = ImagetoText(filepath)
+        image_num =1
+        temp = {
+            "isScam":0,
+            "image_idx": image_num
+        }
+        print(texts)
+        for text in texts:
+            cleaned = clean_text(text)
+            pred, confidence = test_eval(cleaned)
+            if pred==1:
+                temp["isScam"]=1
+        
+        ret_json["data"].append(temp)
 
     return jsonify(ret_json)
+

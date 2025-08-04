@@ -47,10 +47,18 @@ export async function analyse_image(req, res)
 {
     try{
         let form = new FormData();
-        form.append('image', req.file.buffer, {
-            filename: `${Date.now()}${path.extname(req.file.originalname)}`,
-            contentType: req.file.mimetype
-        });
+
+        const images = req.files;
+        let num = 1;
+
+        for(const image of images)
+        {
+            form.append('images', image.buffer, {
+                filename: `${Date.now()}_${num++}${path.extname(image.originalname)}`,
+                contentType: image.mimetype
+            });
+        }
+        
 
         const ai_res = await AI_server.request({
             headers: form.getHeaders(),
