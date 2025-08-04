@@ -71,7 +71,7 @@ export async function analyse_image(req, res)
 
         const ai_res_data = ai_res.data;
 
-        return res.status(201).json(data);
+        return res.status(201).json(ai_res_data);
         
     } catch(err) {
         console.log(err);
