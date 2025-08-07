@@ -7,6 +7,8 @@ services:
       - certloc:/etc/letsencrypt:ro
       - challengeloc:/var/www/letsencrypt
       - ./Front/nginx/conf.d/default.conf:/etc/nginx/nginx.conf
+
+    restart: unless-stopped
   
     ports:
       - "80:80"
@@ -21,6 +23,7 @@ services:
       - challengeloc:/var/www/letsencrypt
       - ./Front/certbot/entrypoint.sh:/entrypoint.sh
     entrypoint: ["/bin/sh", "/entrypoint.sh"]
+    restart: unless-stopped
 
 
   backend:

@@ -4,7 +4,7 @@ import path from 'path';
 
 const AI_server = axios.create({
     baseURL: "http://ai_server:4100/",
-    timeout: 3000
+    timeout: 0
 })
 
 export async function analyse_text(req, res)

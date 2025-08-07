@@ -9,5 +9,3 @@ CREATE TABLE notices (
     link VARCHAR(512),
     created_at DATE NOT NULL
 );
-
-
