@@ -118,23 +118,28 @@
         "options": [
           {
             "label":"휴대폰이 고장 나서 다른 번호로 연락했다고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T1"]
           },
           {
             "label":"병원에 입원해서 치료비가 필요하다고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T1"]
           },
           {
             "label":"사고를 당해서 급하게 돈이 필요하다고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T1"]
           },
           {
             "label":"수술비를 대신 보내달라고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T1"]
           },
           {
             "label":"납치를 당했다며 협박을 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T1"]
           }
         ]
       },
@@ -143,19 +148,23 @@
         "options": [
           {
             "label":"급하게 송금을 요청했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T2"]
           },
           {
             "label":"문장이 부자연스럽거나 외국인 말투 같았어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T2"]
           },
           {
             "label":"청첩장이나 부고장 링크를 보냈어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T2"]
           },
           {
             "label":"계좌번호를 보내면서 대신 입금해달라고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T2"]
           }
         ]
       },
@@ -164,19 +173,23 @@
         "options": [
           {
             "label":"범죄 수사 협조를 요청하며 돈을 보내라고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T7"]
           },
           {
             "label":"내 계좌가 범죄에 연루됐다며 보안 앱을 설치하라고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T6"]
           },
           {
             "label":"현금 전달이나 ATM 사용을 요구했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T6"]
           },
           {
             "label":"피해자 보호라며 통장을 대조하자고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T7"]
           }
         ]
       },
@@ -185,19 +198,23 @@
         "options": [
           {
             "label":"금융사 고객센터라고 하며 카드 결제 확인을 요청했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T4"]
           },
           {
             "label":"본인 인증을 위해 계좌번호나 비밀번호를 요구했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T3"]
           },
           {
             "label":"개인정보나 OTP 입력을 유도했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T3"]
           },
           {
             "label":"해외 결제 내역이라며 취소하겠다고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T4"]
           }
         ]
       },
@@ -206,19 +223,23 @@
         "options": [
           {
             "label":"대출이 가능하다며 수수료를 선입금하라고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X3"]
           },
           {
             "label":"신용등급을 올려야 한다며 앱 설치를 요구했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X3"]
           },
           {
             "label":"기존 대출을 상환하면 추가 대출이 가능하다고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X3"]
           },
           {
             "label":"개인정보를 제출해야 대출이 된다고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X3"]
           }
         ]
       },
@@ -227,19 +248,23 @@
         "options": [
           {
             "label":"세금 환급 신청을 하라고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T4"]
           },
           {
             "label":"재난지원금이나 보조금 지급을 안내했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T4"]
           },
           {
             "label":"건강보험 환급이 가능하다고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T4"]
           },
           {
             "label":"주민등록번호 등 개인정보를 요구했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T4"]
           }
         ]
       },
@@ -248,19 +273,23 @@
         "options": [
           {
             "label":"택배가 반송됐다며 링크를 클릭하라고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X1"]
           },
           {
             "label":"미납 배송비를 결제하라고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X1"]
           },
           {
             "label":"해외배송 조회 링크를 보냈어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X1"]
           },
           {
             "label":"결제 내역 확인 문자를 보냈어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X1"]
           }
         ]
       },
@@ -269,19 +298,23 @@
         "options": [
           {
             "label":"이력서를 보내달라고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X2"]
           },
           {
             "label":"면접 안내라며 앱이나 링크를 열어보라고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X2"]
           },
           {
             "label":"개인정보 입력을 요구했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X2"]
           },
           {
             "label":"채용 담당자라며 급히 연락했다고 했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["X2"]
           }
         ]
       },
@@ -290,15 +323,18 @@
         "options": [
           {
             "label":"카드 결제, 은행 송금 등 내용을 기계음으로 안내했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T8"]
           },
           {
             "label":"버튼을 누르라고 해서 누른 적이 있어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T8"]
           },
           {
             "label":"상담원 연결을 눌렀더니 누군가 전화를 받았어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T8"]
           }
         ]
       },
@@ -307,19 +343,23 @@
         "options": [
           {
             "label":"누구인지 명확히 말하지 않고 금전을 요구했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T2", "T7"]
           },
           {
             "label":"링크나 앱 설치를 유도했어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T4"]
           },
           {
             "label":"이상한 말투와 흐름이 반복됐어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T2"]
           },
           {
             "label":"전화가 끊기고 다시 걸려왔어요",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T2", "T4"]
           }
         ]
       }
@@ -337,19 +377,23 @@
         "options": [
           {
             "label":"송금이나 입금 요구",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T1", "T2", "T7"]
           },
           {
             "label":"ATM기 사용 요구",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T6"]
           },
           {
             "label":"OTP 또는 보안카드 번호 요구",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T3", "T5"]
           },
           {
             "label":"상대방이 직접 돈을 가지러 온다고 함",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T7"]
           }
         ]
       },
@@ -360,11 +404,13 @@
         "options": [
           {
             "label":"앱 설치 요구",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T4", "X2", "X3"]
           },
           {
             "label":"링크를 클릭 유도",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T4", "X1", "X2"]
           }
         ]
       },
@@ -375,15 +421,18 @@
         "options": [
           {
             "label":"개인정보를 입력 요구",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T3", "T4", "X2"]
           },
           {
             "label":"이체 내역이나 영수증 요청",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T3", "T7"]
           },
           {
             "label":"신분증, 통장, 얼굴 사진 요청",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T3", "T7"]
           }
         ]
       },
@@ -394,22 +443,43 @@
         "options": [
           {
             "label":"통화 유지 요청",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T6", "T7"]
           },
           {
             "label":"조사, 협조, 점검에 따르라고 함",
-            "has_followup": false
+            "has_followup": false,
+            "category": ["T6", "T7"]
           }
         ]
       },
       {
         "label": "거절하거나 의심하자 화를 냄",
-        "has_followup": false
+        "has_followup": false,
+        "category": []
       },
       {
         "label": "기억이 안남",
-        "has_followup": false
+        "has_followup": false,
+        "category": []
       }
     ]
+  },
+  {
+    "types": {
+      "T1": "자녀 납치·사고 빙자",
+      "T2": "지인 사칭 메신저 송금",
+      "T3": "인터넷뱅킹/카드정보 탈취·대출 편취",
+      "T4": "금융회사·금감원 사칭 긴급공지/피싱",
+      "T5": "텔레뱅킹 정보 탈취",
+      "T6": "수사기관/공공기관 사칭 ATM 유인",
+      "T7": "기관 사칭 직접 이체 유도",
+      "T8": "ARS 이용 카드론 편취",
+      "T9": "상황극 연출",
+      "T10": "착오 송금 빙자",
+      "X1": "택배/쇼핑몰 스미싱",
+      "X2": "채용(인사팀)·구직 피싱",
+      "X3": "대출 빙자 선입금·앱설치형"
+    }
   }
 ]

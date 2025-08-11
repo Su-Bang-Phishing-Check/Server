@@ -12,6 +12,7 @@ export async function chatbot(req, res)
         new_data.temp.next=[];
         new_data.temp.next_2=[];
         new_data.options = [];
+        new_data.temp.category={};  //카테고리 저장
 
         if(data.state==false)  //처음 시작 --> O
         {
@@ -87,13 +88,19 @@ export async function chatbot(req, res)
             }
 
             prev_question++;
+            followup=null;
         }
 
         if(prev_question==2)
         {
             if(followup != null)  //첫 질문이 아닐 때
             {
-                //선택 처리하기
+                for(const select of selected)  //선택한 옵션에 대해서
+                {
+                    for(const type of questions[2].options[followup].options[select].category)
+                        new_data.temp.category[type] = true;
+                    //나머지 응답 처리
+                }
             }
 
             if(next_2.length!=0) // 하위 질문이 있을 때
@@ -134,7 +141,12 @@ export async function chatbot(req, res)
             }
             else  //followup 문제의 응답이면 점수 처리
             {
-
+                for(const select of selected)  //선택한 옵션에 대해서
+                {
+                    for(const type of questions[3].options[followup].options[select].category)
+                        new_data.temp.category[type] = true;
+                    //나머지 응답 처리
+                }
             }
 
             if(next.length!=0)
@@ -157,7 +169,8 @@ export async function chatbot(req, res)
 
         return res.status(201).json({
             state: false,
-            message: "finished"
+            message: "finished",
+            types: data.temp.category
         });
 
     } catch(err){
