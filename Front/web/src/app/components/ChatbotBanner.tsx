@@ -1,12 +1,12 @@
-'use client';
-import ChatStepIcon from './ChatStepIcon';
-import { useRouter } from 'next/navigation';
+"use client";
+import ChatStepIcon from "./ChatStepIcon";
+import { useRouter } from "next/navigation";
 
 const ChatbotBanner = () => {
   const router = useRouter();
 
   const handleChatClick = () => {
-    router.push('/chatbot');
+    router.push("/chatbot");
   };
 
   return (
@@ -14,8 +14,8 @@ const ChatbotBanner = () => {
       onClick={handleChatClick}
       className="cursor-pointer 
       flex flex-col items-center justify-center 
-      bg-white p-4 my-2 md:my-4 mx-2 text-black 
-      w-full md:w-[450px] h-[150px] md:h-[200px]
+      bg-white p-4 text-black 
+      w-full h-[150px] md:h-[200px]
       border-3 border-blue-100 rounded-xl
       hover:shadow-md active:scale-95 transition-transform"
     >

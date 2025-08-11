@@ -28,7 +28,7 @@ const ChatBotMessage = ({ question }: ChatBotMessageProps) => {
         </div>
         <p
           className="text-sm md:text-base text-white bg-[#3177FF]
-        p-2 rounded-lg shadow-md pl-4 pr-6"
+        p-2 rounded-xl shadow-md pl-4 pr-6"
         >
           {question}
         </p>

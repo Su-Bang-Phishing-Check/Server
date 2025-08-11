@@ -1,5 +1,5 @@
-'use client';
-import Button from './Button';
+"use client";
+import Button from "./Button";
 
 const MainBanner = () => {
   return (
@@ -22,7 +22,7 @@ const MainBanner = () => {
         <Button variant="outline" href="/analyse">
           사기문자분석
         </Button>
-        <Button variant="outline" href="/contact-book">
+        <Button variant="outline" href="/safe-manual">
           대응 매뉴얼
         </Button>
       </div>

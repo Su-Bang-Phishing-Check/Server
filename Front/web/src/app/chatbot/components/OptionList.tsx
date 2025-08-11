@@ -20,7 +20,7 @@ const OptionList = ({
             ${
               selected.includes(index)
                 ? 'bg-[#3177FF] text-white'
-                : 'bg-gray-200 text-blue-600 hover:bg-blue-100'
+                : 'bg-gray-100 text-blue-600 hover:bg-blue-100'
             }
             }`}
         >
