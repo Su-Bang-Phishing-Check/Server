@@ -1,11 +1,9 @@
-import { createPool } from "../DB/noticeDB.js";
+import { createPool } from "../DB/pscheckDB.js";
 
 const db = await createPool();
 
 export async function mainNotice(req,res){   //메인 화면 공지
     try{
-
-
         if(db==null){    //db 풀이 없을 때
             console.log('db is null');
             return res.status(401).json({
@@ -15,7 +13,7 @@ export async function mainNotice(req,res){   //메인 화면 공지
         
         //공지 5개 조회
         const [ret] = await db.query(`   
-            select id, title, link, DATE_FORMAT(created_at, '%Y.%m.%d일') AS created_at
+            select id, title, link, DATE_FORMAT(created_at, '%Y.%m.%d') AS created_at
             from notices
             order by created_at DESC
             LIMIT 5`);
@@ -75,7 +73,7 @@ export async function pageNotice(req, res){
         console.log(max_page);
 
         const [ret] = await db.query(`
-            select id, title, link, DATE_FORMAT(created_at, '%Y.%m.%d일') AS created_at
+            select id, title, link, DATE_FORMAT(created_at, '%Y.%m.%d') AS created_at
             from notices
             ORDER BY created_at DESC
             LIMIT 10

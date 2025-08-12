@@ -4,12 +4,14 @@ import ChatBotMessage from "./ChatBotMessage";
 import OptionList from "./OptionList";
 import OptionSubmitButton from "./OptionSubmitButton";
 import UserMessage from "./UserMessage";
+import ChatResult from "./ChatResult";
 
 interface TempType {
   next: number[];
   next_2: number[];
   cur_question: number;
   followup?: number | null;
+  category: string[];
 }
 
 interface ChatInitRequest {
@@ -27,7 +29,11 @@ interface ChatAPIResponse {
   question?: string;
   options?: string[];
   temp?: TempType;
-  result?: string;
+  message?: string;
+  data?: {
+    t_type: string[];
+    x_type: string[];
+  };
 }
 
 // 채팅 이력 누적 관리
@@ -36,6 +42,8 @@ interface Message {
   text: string;
   options?: string[];
   finish?: boolean;
+  t_type?: string[];
+  x_type?: string[];
   time: string;
 }
 
@@ -177,9 +185,11 @@ const ChatMessageList = () => {
         ...prev,
         {
           type: "bot",
-          text: data.result ?? "",
+          text: "감사합니다.\n결과를 아래에서 확인해주세요.",
           finish: true,
           time: getCurrentTime(),
+          t_type: data.data?.t_type ?? [],
+          x_type: data.data?.x_type ?? [],
         },
       ]);
       setSelectedOptions([]);
@@ -214,6 +224,9 @@ const ChatMessageList = () => {
             )}
             {msg.type === "user" && (
               <UserMessage text={msg.text} time={msg.time} />
+            )}
+            {msg.type === "bot" && msg.finish && (
+              <ChatResult t_type={msg?.t_type ?? []} x_type={msg?.x_type ?? []} />
             )}
           </div>
         );

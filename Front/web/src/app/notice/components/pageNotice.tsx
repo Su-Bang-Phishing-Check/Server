@@ -78,13 +78,13 @@ const GetPageNotice = () => {
             <table className="w-full table-fixed">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="w-20 px-4 py-3 text-left text-xs font-semibold text-gray-600">
+                  <th className="w-20 px-4 py-3 text-left text-base font-semibold text-gray-600">
                     번호
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600">
+                  <th className="px-4 py-3 text-left text-base font-semibold text-gray-600">
                     제목
                   </th>
-                  <th className="w-36 px-4 py-3 text-left text-xs font-semibold text-gray-600">
+                  <th className="w-36 px-4 py-3 text-right text-base font-semibold text-gray-600">
                     등록일
                   </th>
                 </tr>
@@ -95,20 +95,20 @@ const GetPageNotice = () => {
                     key={notice.id}
                     className="hover:bg-gray-50 transition-colors"
                   >
-                    <td className="px-4 py-3 text-sm text-gray-700 tabular-nums">
+                    <td className="h-16 px-4 py-3 text-base text-gray-700 tabular-nums">
                       {notice.id}
                     </td>
 
                     <td className="px-4 py-3">
                       <Link
                         href={notice.link}
-                        className="text-sm text-blue-600 hover:underline line-clamp-2"
+                        className="h-16 text-base hover:underline hover:text-blue-500 line-clamp-2"
                       >
                         {notice.title}
                       </Link>
                     </td>
 
-                    <td className="px-4 py-3 text-right text-xs text-gray-500 whitespace-nowrap">
+                    <td className="h-16 px-4 py-3 text-right text-base text-gray-500 whitespace-nowrap">
                       {notice.created_at}
                     </td>
                   </tr>
@@ -121,22 +121,20 @@ const GetPageNotice = () => {
         !loading && !error && <p>공지사항이 없습니다.</p>
       )}
       <div>
-        <button
-          onClick={goPrev}
-          disabled={pageNo === 1}
-          className="p-3 cursor-pointer"
-        >
-          <FiChevronLeft className="inline-block" />
+        <button onClick={goPrev} disabled={pageNo === 1}>
+          <FiChevronLeft
+            size={20}
+            className="inline-block cursor-pointer hover:text-blue-500"
+          />
         </button>
         <span>
           {pageNo} / {totalPage}
         </span>
-        <button
-          onClick={goNext}
-          disabled={pageNo === totalPage}
-          className="p-3 cursor-pointer"
-        >
-          <FiChevronRight className="inline-block" />
+        <button onClick={goNext} disabled={pageNo === totalPage}>
+          <FiChevronRight
+            size={20}
+            className="inline-block cursor-pointer hover:text-blue-500"
+          />
         </button>
       </div>
     </div>

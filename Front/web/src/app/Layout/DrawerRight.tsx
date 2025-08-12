@@ -58,6 +58,12 @@ const DrawerRight = () => {
           </li>
           <li
             className="hover:bg-gray-100 p-2 rounded"
+            onClick={() => router.push("/notice")}
+          >
+            공지사항{" "}
+          </li>
+          <li
+            className="hover:bg-gray-100 p-2 rounded"
             onClick={() => router.push("/feedback")}
           >
             의견보내기

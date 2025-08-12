@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import noticeRoutes from './Router/noticeRoute.js';
 import cron from 'node-cron';
 import {chatbot} from './Controller/chatbotController.js';
-import { sync_db } from './DB/noticeDB.js';
+import { sync_db } from './DB/pscheckDB.js';
 import {add_feedback} from './Controller/feedbackController.js';
 
 

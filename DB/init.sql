@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS notice_db;
-CREATE DATABASE IF NOT EXISTS notice_db;
+DROP DATABASE IF EXISTS pscheck_db;
+CREATE DATABASE IF NOT EXISTS pscheck_db;
 
-use notice_db;
+use pscheck_db;
 
 CREATE TABLE IF NOT EXISTS notices (
     id INT NOT NULL PRIMARY KEY,
