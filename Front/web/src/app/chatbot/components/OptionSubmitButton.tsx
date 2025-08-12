@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 interface OptionSubmitButtonProps {
   disabled: boolean;
@@ -19,8 +19,8 @@ const OptionSubmitButton = ({
           px-4 py-2 rounded-full text-xs md:text-sm transition
           ${
             disabled
-              ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-              : 'bg-[#3177FF] text-white hover:bg-blue-600'
+              ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+              : "bg-[#3177FF] text-white hover:bg-blue-600"
           }
         `}
       >

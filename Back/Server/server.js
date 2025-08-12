@@ -11,7 +11,7 @@ import {add_feedback} from './Controller/feedbackController.js'
 
 dotenv.config();
 
-//await sync_db();
+await sync_db();
 
 
 const app = express();

@@ -1,4 +1,4 @@
-import GetPageNotice from './pageNotice';
+import GetPageNotice from "./components/pageNotice";
 
 const NoticePage = () => {
   return (
@@ -8,8 +8,7 @@ const NoticePage = () => {
           공지사항
         </h1>
         <p className="text-gray-600 text-sm md:text-base">
-          금융감독원에서 공지하고 있는 금융소비자보호 경보 내용을
-          공유합니다.
+          금융감독원에서 공지하고 있는 금융소비자보호 경보 내용을 공유합니다.
         </p>
       </div>
       <section>

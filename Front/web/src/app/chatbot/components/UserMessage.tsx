@@ -1,14 +1,9 @@
 interface UserMessageProps {
   text: string;
+  time: string;
 }
 
-const UserMessage = ({ text }: UserMessageProps) => {
-  const date = new Date();
-  const formattedData = date.toLocaleTimeString('ko-KR', {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-
+const UserMessage = ({ text, time }: UserMessageProps) => {
   return (
     <div className="flex flex-col items-end gap-x-2 mt-2">
       <div
@@ -17,9 +12,7 @@ const UserMessage = ({ text }: UserMessageProps) => {
       >
         {text}
       </div>
-      <p className="mt-1 text-xs md:text-sm text-gray-500">
-        {formattedData}
-      </p>
+      <p className="mt-1 text-xs md:text-sm text-gray-500">{time}</p>
     </div>
   );
 };

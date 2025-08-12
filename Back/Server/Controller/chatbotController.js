@@ -14,7 +14,7 @@ export async function chatbot(req, res)
         new_data.options = [];
         new_data.temp.category={};  //카테고리 저장
 
-        if(data.state==false)  //처음 시작 --> O
+        if(data.state==0)  //처음 시작 --> O
         {
             new_data.state=1;
             new_data.question = questions[0].question;
