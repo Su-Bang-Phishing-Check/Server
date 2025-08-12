@@ -32,6 +32,18 @@ export async function chatbot(req, res)
         let next = data.temp.next;
         let selected = data.select;
         let next_2 = data.temp.next_2;
+        let selected_category = data.temp.category;
+        selected.sort();
+        next.sort();
+        next_2.sort();
+        selected_category =Object.keys(selected_category)   
+                            .sort()                             
+                            .reduce((obj, key) => {
+                                obj[key] = selected_category[key];
+                                return obj;
+                                }, {});
+
+        console.log(selected_category);
 
         new_data.state=true;
     
@@ -58,7 +70,7 @@ export async function chatbot(req, res)
                     if(questions[1].options[select].has_followup==1)
                         next.push(select);
                     else
-                        new_data.temp.next_2.push(questions[1].options[select].next_2)   //3번 질문을 위해 저장
+                        next_2.push(questions[1].options[select].next_2)   //3번 질문을 위해 저장
                 }
 
                 console.log(next);
@@ -98,8 +110,7 @@ export async function chatbot(req, res)
                 for(const select of selected)  //선택한 옵션에 대해서
                 {
                     for(const type of questions[2].options[followup].options[select].category)
-                        new_data.temp.category[type] = true;
-                    //나머지 응답 처리
+                        selected_category[type] = true;
                 }
             }
 
@@ -114,6 +125,7 @@ export async function chatbot(req, res)
                 new_data.temp.cur_question = 2;
                 new_data.temp.followup = cur_followup;
                 new_data.temp.next_2 = next_2;
+                new_data.temp.category = selected_category;
 
                 return res.status(201).json(new_data);
             }
@@ -123,6 +135,7 @@ export async function chatbot(req, res)
                 new_data.options.push(option.label);
             
             new_data.temp.cur_question=3;
+            new_data.temp.category = selected_category;
             new_data.temp.followup=null;
 
             return res.status(201).json(new_data);
@@ -136,7 +149,9 @@ export async function chatbot(req, res)
                 {
                     if(questions[3].options[select].has_followup==true)
                         next.push(select);
-                    //나머지 응답 처리
+                    else
+                        for(const type of questions[3].options[select].category)
+                            selected_category[type] = true;
                 }
             }
             else  //followup 문제의 응답이면 점수 처리
@@ -144,8 +159,7 @@ export async function chatbot(req, res)
                 for(const select of selected)  //선택한 옵션에 대해서
                 {
                     for(const type of questions[3].options[followup].options[select].category)
-                        new_data.temp.category[type] = true;
-                    //나머지 응답 처리
+                        selected_category[type] = true;
                 }
             }
 
@@ -160,6 +174,7 @@ export async function chatbot(req, res)
                 new_data.temp.cur_question = 3;
                 new_data.temp.followup = cur_followup;
                 new_data.temp.next = next;
+                new_data.temp.category = selected_category;
 
                 return res.status(201).json(new_data);
             }

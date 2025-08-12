@@ -10,7 +10,7 @@ import { sync_db } from './DB/noticeDB.js';
 
 dotenv.config();
 
-await sync_db();
+//await sync_db();
 
 
 const app = express();
@@ -25,11 +25,13 @@ app.use('/analyse', analyseRoutes);
 app.use('/notice', noticeRoutes);
 app.post('/chatbot', chatbot);
 
+/*
 cron.schedule('0 0,12 * * *', async ()=>{
     console.log('DB 동기화 시작');
     await sync_db();
     console.log('DB 동기화 완료');
 });
+*/
 
 
 app.listen(3300, '0.0.0.0', ()=>{

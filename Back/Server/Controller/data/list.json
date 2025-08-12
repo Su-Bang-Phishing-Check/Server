@@ -456,12 +456,12 @@
       {
         "label": "거절하거나 의심하자 화를 냄",
         "has_followup": false,
-        "category": []
+        "category": ["A1"]
       },
       {
         "label": "기억이 안남",
         "has_followup": false,
-        "category": []
+        "category": ["A2"]
       }
     ]
   },
