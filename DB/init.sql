@@ -3,9 +3,15 @@ CREATE DATABASE IF NOT EXISTS notice_db;
 
 use notice_db;
 
-CREATE TABLE notices (
+CREATE TABLE IF NOT EXISTS notices (
     id INT NOT NULL PRIMARY KEY,
     title VARCHAR(512) NOT NULL,
     link VARCHAR(512),
     created_at DATE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS feedbacks(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    feedback TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

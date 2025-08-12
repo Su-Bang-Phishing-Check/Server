@@ -45,7 +45,7 @@ export async function chatbot(req, res)
 
         console.log(selected_category);
 
-        new_data.state=true;
+        new_data.state=1;
     
         if(prev_question==0)  //1번 문제에 대한 응답
         {
@@ -163,6 +163,8 @@ export async function chatbot(req, res)
                 }
             }
 
+            
+
             if(next.length!=0)
             {
                 const cur_followup = next.shift();
@@ -179,13 +181,33 @@ export async function chatbot(req, res)
                 return res.status(201).json(new_data);
             }
 
+            new_data.temp.category=selected_category;
             prev_question++;
         }
 
+        selected_category =Object.keys(selected_category)   
+                            .sort()                             
+                            .reduce((obj, key) => {
+                                obj[key] = selected_category[key];
+                                return obj;
+                                }, {});
+                                
+        let final_category_text = {};
+        final_category_text.t_type = [];
+        final_category_text.x_type = [];
+
+        for(const key in selected_category)
+        {
+            if(key.startsWith("T"))
+                final_category_text.t_type.push(questions[4].types[key]);
+            else
+                final_category_text.x_type.push(questions[4].types[key]);
+        }
+
         return res.status(201).json({
-            state: false,
+            state: 2,
             message: "finished",
-            types: data.temp.category
+            data: final_category_text
         });
 
     } catch(err){

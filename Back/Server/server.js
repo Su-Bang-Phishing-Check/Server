@@ -6,6 +6,7 @@ import noticeRoutes from './Router/noticeRoute.js';
 import cron from 'node-cron';
 import {chatbot} from './Controller/chatbotController.js';
 import { sync_db } from './DB/noticeDB.js';
+import {add_feedback} from './Controller/feedbackController.js'
 
 
 dotenv.config();
@@ -24,14 +25,15 @@ app.use(cors({
 app.use('/analyse', analyseRoutes);
 app.use('/notice', noticeRoutes);
 app.post('/chatbot', chatbot);
+app.post('/feedback', add_feedback);
 
-/*
+
 cron.schedule('0 0,12 * * *', async ()=>{
     console.log('DB 동기화 시작');
     await sync_db();
     console.log('DB 동기화 완료');
 });
-*/
+
 
 
 app.listen(3300, '0.0.0.0', ()=>{
