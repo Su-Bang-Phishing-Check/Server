@@ -67,6 +67,8 @@ class Classifier(nn.Module):
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, trust_remote_code=True)
 bert = AutoModel.from_pretrained(MODEL_NAME, trust_remote_code=True).to(DEVICE)
+model = Classifier(input_size=bert.config.hidden_size).to(DEVICE)
+model.load_state_dict(torch.load(SAVE_PATH, map_location=DEVICE))
 
 def predict(text):
     sentences = [clean_text(s.strip()) for s in text.strip().split("\n") if s.strip()]
@@ -89,17 +91,17 @@ def predict(text):
     else:
         final_embedding = torch.stack(sentence_embeddings).mean(dim=0).unsqueeze(0).to(DEVICE)
 
-    model = Classifier(input_size=bert.config.hidden_size).to(DEVICE)
-    model.load_state_dict(torch.load(SAVE_PATH, map_location=DEVICE))
     model.eval()
 
     with torch.no_grad():
         logits = model(final_embedding)
-        probs = torch.softmax(logits, dim=1)
-        pred = torch.argmax(probs, dim=-1).item()
-        confidence = probs[0][pred].item()
+        probs = torch.softmax(logits, dim=-1)
+        conf, pred = probs.max(dim=-1)
+        conf = conf.tolist()[0]
+        pred = pred.tolist()[0]
     
-    return pred, confidence
+        
+    return pred, conf
 
     
 

@@ -99,10 +99,10 @@ const GetPageNotice = () => {
                       {notice.id}
                     </td>
 
-                    <td className="px-4 py-3">
+                    <td className="px-4 py-3 align-middle">
                       <Link
                         href={notice.link}
-                        className="h-16 text-base hover:underline hover:text-blue-500 line-clamp-2"
+                        className="block text-base hover:underline hover:text-blue-500 line-clamp-2"
                       >
                         {notice.title}
                       </Link>

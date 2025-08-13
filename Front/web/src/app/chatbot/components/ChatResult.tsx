@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo } from "react";
 
 interface ResultData {
   t_type: string[];
@@ -6,17 +6,15 @@ interface ResultData {
 }
 
 const ChatResult = ({ t_type, x_type }: ResultData) => {
-  const [result, setResult] = useState<number>(0);
+  const result = useMemo(() => {
+    const t = t_type.length > 0;
+    const x = x_type.length > 0;
+    if (!t && !x) return 0;
+    if (t && !x) return 1;
+    if (!t && x) return 2;
+    return 3;
+  }, [t_type, x_type]);
 
-  if (t_type.length === 0 && x_type.length === 0) {
-    setResult(0);
-  } else if (t_type.length > 0 && x_type.length === 0) {
-    setResult(1);
-  } else if (t_type.length === 0 && x_type.length > 0) {
-    setResult(2);
-  } else if (t_type.length > 0 && x_type.length > 0) {
-    setResult(3);
-  }
   return (
     <div className="text-base">
       <h1>선택하신 내용은 </h1>

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NoticeList from "./NoticeList";
 import NoticeTriangleIcon from "./NoticeTriangleIcon";
 import { useRouter } from "next/navigation";
@@ -28,7 +28,10 @@ const Notice = () => {
   const fetchNotices = async () => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/notice/mainNotice`,
-      { method: "GET", cache: "no-store" }
+      {
+        method: "GET",
+        cache: "no-store",
+      }
     );
 
     if (!res.ok) {
@@ -46,12 +49,14 @@ const Notice = () => {
     );
   };
 
+  useEffect(() => {
+    fetchNotices();
+  }, []);
+
   return (
     <section
-      className="flex-col 
-    bg-[#3177FF] text-white p-4 
-    w-full max-w-[940px] mx-auto 
-    shadow space-y-2"
+      className="flex-col bg-[#3177FF] text-white p-4 
+    w-full max-w-[940px] mx-auto shadow space-y-2"
     >
       <div className="flex items-center space-x-2 px-2 md:px-4">
         <NoticeTriangleIcon />
