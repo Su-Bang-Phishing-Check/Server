@@ -50,6 +50,9 @@ def ImagetoText(image_route):
         for _, text, _ in results:
             fulltext+=text
 
-        texts.append(fulltext)
+        if fulltext.isspace()==False:
+            texts.append(fulltext)
     
-    return texts
+    cleaned = [x for x in texts if x.strip() != '']
+    
+    return cleaned

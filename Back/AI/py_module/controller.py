@@ -7,6 +7,11 @@ from .process_image import ImagetoText
 def post_text():
     body = request.get_json()
     print(body['text'])
+    if body['text'].isspace()==True:
+        return jsonify({
+            "isScam": 0,
+            "score": 1
+        })
     ##cleaned = clean_text(body['text'])
     pred, confidence = test_eval(body['text'])
 
@@ -34,7 +39,7 @@ def post_image():
         "data": []
     }
 
-    image_num = 1
+    image_num = 0
     
     for filepath in filepaths:
         texts = ImagetoText(filepath)
@@ -42,12 +47,13 @@ def post_image():
             "isScam":0,
             "image_idx": image_num
         }
-        print(texts)
+        print(texts, flush=True)
         for text in texts:
             #cleaned = clean_text(text)
             pred, confidence = test_eval(text)
             if pred==1:
                 temp["isScam"]=1
+            print("{pred}\n")
         
         ret_json["data"].append(temp)
         image_num+=1
