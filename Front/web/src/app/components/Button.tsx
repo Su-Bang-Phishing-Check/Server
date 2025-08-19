@@ -1,27 +1,43 @@
-"use client";
+'use client';
+import { useRouter } from 'next/navigation';
 
-import React from "react";
+import React from 'react';
 
 interface ButtonProps {
-  variant: "fill" | "outline";
+  variant: 'fill' | 'outline';
   children: React.ReactNode;
+  href: string;
   onClick?: () => void;
 }
 
-export default function Button({ variant, children, onClick }: ButtonProps) {
+const Button = ({
+  variant,
+  children,
+  href,
+  onClick,
+}: ButtonProps) => {
+  const router = useRouter();
+
   const handleButtonClick = () => {
-    console.log('버튼 클릭');
-  }
-  const baseStyle = "w-[180px] h-[50px] text-base	rounded-[10px] px-4 py-2";
+    router.push(href);
+    onClick?.();
+  };
+  const baseStyle =
+    'cursor-pointer font-medium w-full md:w-[180px] h-[50px] text-sm md:text-base rounded-[10px] px-2 md:px-4';
   const fillStyle =
-    "bg-[#3177ff] text-white hover:bg-[#005ce6] transition-colors duration-200";
+    'bg-[#3177ff] text-white hover:bg-[#005ce6] transition-colors duration-200';
   const outlineStyle =
-    "border-2 border-[#3177ff] text-[#3177ff] hover:bg-[#eaf2ff] transition-colors duration-200";
-  const variantStyle = variant === "fill" ? fillStyle : outlineStyle;
+    'border-2 border-[#3177ff] text-[#3177ff] hover:bg-[#eaf2ff] transition-colors duration-200';
+  const variantStyle = variant === 'fill' ? fillStyle : outlineStyle;
 
   return (
-    <button className={`${baseStyle} ${variantStyle}`} onClick={handleButtonClick}>
+    <button
+      className={`${baseStyle} ${variantStyle}`}
+      onClick={handleButtonClick}
+    >
       {children}
     </button>
   );
-}
+};
+
+export default Button;

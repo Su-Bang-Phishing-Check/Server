@@ -1,0 +1,20 @@
+{
+  "name": "피싱체크",
+  "short_name": "피싱체크",
+  "description": "보이스피싱과 스미싱 위험도를 알려주는 서비스",
+  "lang": "ko-KR",
+  "dir": "ltr",
+  "start_url": "https://피싱체크.com/?source=pwa",
+  "scope": "https://피싱체크.com/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eff6ff",
+  "theme_color": "#eff6ff",
+  "icons": [
+    {
+      "src": "/assets/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

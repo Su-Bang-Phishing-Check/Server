@@ -1,0 +1,182 @@
+[
+  {
+    "name": "IBK기업은행",
+    "phone": ["1566-2566", "1588-2588"],
+    "img": "/assets",
+    "url": "https://www.ibk.co.kr"
+  },
+  {
+    "name": "iM은행(구 대구은행)",
+    "phone": ["1566-5050", "1588-5050"],
+    "img": "/assets",
+    "url": "https://www.imbank.co.kr"
+  },
+  {
+    "name": "KDB산업은행",
+    "phone": ["1588-1500", "1668-1500"],
+    "img": "/assets",
+    "url": "https://www.kdb.co.kr"
+  },
+  {
+    "name": "SC제일은행",
+    "phone": ["1588-1599"],
+    "img": "/assets",
+    "url": "https://www.standardchartered.co.kr"
+  },
+  {
+    "name": "Sh수협은행",
+    "phone": ["1588-1515", "1644-1515"],
+    "img": "/assets",
+    "url": "https://www.suhyup-bank.com"
+  },
+  {
+    "name": "경남은행",
+    "phone": ["1600-8585", "1588-8585"],
+    "img": "/assets",
+    "url": "https://www.knbank.co.kr"
+  },
+  {
+    "name": "광주은행",
+    "phone": ["1588-3388", "1600-4000"],
+    "img": "/assets",
+    "url": "https://pib.kjbank.com"
+  },
+  {
+    "name": "국민은행",
+    "phone": ["1588-9999", "1599-9999"],
+    "img": "/assets",
+    "url": "https://www.kbstar.com"
+  },
+  {
+    "name": "농·축협",
+    "phone": ["1661-2100", "1522-2100"],
+    "img": "/assets",
+    "url": "https://banking.nonghyup.com"
+  },
+  {
+    "name": "농협은행",
+    "phone": ["1661-3000", "1522-3000"],
+    "img": "/assets",
+    "url": "https://banking.nonghyup.com"
+  },
+  {
+    "name": "부산은행",
+    "phone": ["1588-6200"],
+    "img": "/assets",
+    "url": "https://www.busanbank.co.kr"
+  },
+  {
+    "name": "산림조합중앙회",
+    "phone": ["1544-4200"],
+    "img": "/assets",
+    "url": "https://banking.nfcf.or.kr"
+  },
+  {
+    "name": "새마을금고",
+    "phone": ["1599-9000"],
+    "img": "/assets",
+    "url": "https://ibs.kfcc.co.kr"
+  },
+  {
+    "name": "신한은행",
+    "phone": ["1577-8000", "1599-8000"],
+    "img": "/assets",
+    "url": "https://www.shinhan.com"
+  },
+  {
+    "name": "신협",
+    "phone": ["1566-6000"],
+    "img": "/assets",
+    "url": "https://www.cu.co.kr"
+  },
+  {
+    "name": "신용보증기금",
+    "phone": ["1588-6565"],
+    "img": "/assets",
+    "url": "https://www.kodit.co.kr/apps/index.do"
+  },
+  {
+    "name": "우정사업본부(우체국)",
+    "phone": ["1588-1900"],
+    "img": "/assets",
+    "url": "https://www.epostbank.go.kr"
+  },
+  {
+    "name": "우리은행",
+    "phone": ["1588-5000", "1599-5000"],
+    "img": "/assets",
+    "url": "https://www.wooribank.com"
+  },
+  {
+    "name": "전북은행",
+    "phone": ["1588-4477"],
+    "img": "/assets",
+    "url": "https://www.jbbank.co.kr"
+  },
+  {
+    "name": "제주은행",
+    "phone": ["1588-0079"],
+    "img": "/assets",
+    "url": "https://www.jejubank.co.kr"
+  },
+  {
+    "name": "카카오뱅크",
+    "phone": ["1599-3333"],
+    "img": "/assets",
+    "url": "https://www.kakaobank.com"
+  },
+  {
+    "name": "케이뱅크",
+    "phone": ["1522-1000"],
+    "img": "/assets",
+    "url": "https://www.kbanknow.com"
+  },
+  {
+    "name": "토스뱅크",
+    "phone": ["1661-7654"],
+    "img": "/assets",
+    "url": "https://www.tossbank.com"
+  },
+  {
+    "name": "하나은행",
+    "phone": ["1588-1111", "1599-1111"],
+    "img": "/assets",
+    "url": "https://www.kebhana.com"
+  },
+  {
+    "name": "한국씨티은행",
+    "phone": ["1588-7000"],
+    "img": "/assets",
+    "url": "https://www.citibank.co.kr"
+  },
+  {
+    "name": "한국수출입은행",
+    "phone": ["(02) 3779-6114", "6255-5114"],
+    "img": "/assets",
+    "url": "https://www.koreaexim.go.kr"
+  },
+  {
+    "name": "금융감독원",
+    "phone": ["1332"],
+    "img": "/assets",
+    "url": "https://www.fss.or.kr"
+  },
+  {
+    "name": "금융결제원",
+    "phone": ["1577-5500"],
+    "img": "/assets",
+    "url": "https://www.kftc.or.kr"
+  },
+  {
+    "name": "경찰청",
+    "phone": ["112"],
+    "img": "/assets",
+    "url": "https://www.police.go.kr/www/security/cyber/cyber04.jsp"
+  },
+  {
+    "name": "한국인터넷진흥원",
+    "phone": ["118"],
+    "img": "/assets",
+    "url": "https://www.kisa.or.kr/"
+  }
+]

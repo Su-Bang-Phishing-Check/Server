@@ -1,8 +1,13 @@
 import axios from 'axios';
+import FormData from 'form-data';
+import path from 'path';
+import { createPool } from '../DB/pscheckDB.js';
+
+const db = await createPool();
 
 const AI_server = axios.create({
-    baseURL: "http://ai_server:3100/",
-    timeout: 3000
+    baseURL: "http://ai_server:4100/",
+    timeout: 0
 })
 
 export async function analyse_text(req, res)
@@ -31,14 +36,54 @@ export async function analyse_text(req, res)
 
         console.log("done!")
 
-        return res.status(201).json({
-            result: result.data.result
-        });
+        await db.execute(`
+            INSERT INTO messages
+            (text_message, classified_as) VALUES(?,?)`, [text, result.data.isScam]);
+
+        return res.status(201).json(result.data);
 
     } catch(err) {
         console.error("error: ", err);
         return res.status(404).json({
             message: "error"
+        });
+    }
+}
+
+export async function analyse_image(req, res)
+{
+    try{
+        let form = new FormData();
+
+        const images = req.files;
+        let num = 1;
+
+        for(const image of images)
+        {
+            form.append('images', image.buffer, {
+                filename: `${Date.now()}_${num++}${path.extname(image.originalname)}`,
+                contentType: image.mimetype
+            });
+        }
+        
+
+        const ai_res = await AI_server.request({
+            headers: form.getHeaders(),
+            url: 'image',
+            data: form,
+            method: 'post'
+        });
+
+        console.log("upload success!");
+
+        const ai_res_data = ai_res.data;
+
+        return res.status(201).json(ai_res_data);
+        
+    } catch(err) {
+        console.log(err);
+        return res.status(401).json({
+            error: err
         });
     }
 }

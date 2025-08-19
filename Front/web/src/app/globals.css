@@ -24,3 +24,19 @@ body {
   color: var(--foreground);
   font-family: 'Pretendard', Arial, sans-serif;
 }
+
+.dot-above {
+  position: relative;
+}
+
+.dot-above::before {
+  content: "";
+  position: absolute;
+  top: -6px; /* 점 위치 조절 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;  /* 점 크기 */
+  height: 4px;
+  background-color: #3177ff; /* 점 색상 */
+  border-radius: 50%;
+}

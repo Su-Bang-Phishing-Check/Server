@@ -12,8 +12,8 @@ RUN npm install
 COPY . .
 
 # 5. 프로덕션 빌드
-RUN npm run build
+# RUN npm run build
 
 # 6. 앱 실행
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
 

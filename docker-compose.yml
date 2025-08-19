@@ -7,6 +7,8 @@ services:
       - certloc:/etc/letsencrypt:ro
       - challengeloc:/var/www/letsencrypt
       - ./Front/nginx/conf.d/default.conf:/etc/nginx/nginx.conf
+
+    restart: unless-stopped
   
     ports:
       - "80:80"
@@ -21,6 +23,7 @@ services:
       - challengeloc:/var/www/letsencrypt
       - ./Front/certbot/entrypoint.sh:/entrypoint.sh
     entrypoint: ["/bin/sh", "/entrypoint.sh"]
+    restart: unless-stopped
 
 
   backend:
@@ -29,12 +32,37 @@ services:
     volumes:
       - ./Back/Server:/app
       - /app/node_modules
+    depends_on:
+      - DB
 
   ai:
     container_name: ai_server
     build: ./Back/AI
     volumes:
       - ./Back/AI:/app
+  
+
+  front:
+    container_name: front_server
+    build: ./Front/web
+    volumes:
+      - ./Front/web:/app
+      - /app/node_modules
+
+
+  DB:
+    container_name: pscheck_db
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      LANG: C.UTF-8
+      TZ: Asia/Seoul
+
+    volumes:
+      - app_data:/var/lib/mysql
+      - ./DB/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+
 
   front:
     container_name: front_server
@@ -46,3 +74,4 @@ services:
 volumes:
   certloc:
   challengeloc:
+  app_data:
