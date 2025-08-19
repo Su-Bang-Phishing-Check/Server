@@ -22,6 +22,7 @@ def ImagetoText(image_route):
         image = cv.bitwise_not(image)
 
     th1 = cv.adaptiveThreshold(image, 255,  cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY_INV, 7, 1)  #이진화
+    
 
     contour, _= cv.findContours(th1, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE)  #외곽선 찾기
 
@@ -46,13 +47,14 @@ def ImagetoText(image_route):
 
         roi = image[y:y+h, x:x+w]
         results = reader.readtext(roi)
+        #print(results)
         fulltext=""
         for _, text, _ in results:
             fulltext+=text
 
+
         if fulltext.isspace()==False:
+            fulltext = fulltext.replace(".", ".\n")
             texts.append(fulltext)
     
-    cleaned = [x for x in texts if x.strip() != '']
-    
-    return cleaned
+    return texts

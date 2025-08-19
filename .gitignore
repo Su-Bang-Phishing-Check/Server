@@ -2,6 +2,7 @@
 /.conda
 /Back/AI/py_module/Kobert_Finetuned
 /Back/AI/py_module/test6_trainer
+/Back/AI/py_module/test7_trainer
 /Back/AI/py_module/__pycache__
 /Front/web/.env
 /Back/AI/py_module/Kobert_Finetuned.zip
@@ -10,3 +11,10 @@ etc
 /Back/Server/.env
 /Back/AI/uploads/*
 /temp
+/Back/AI/py_module/test11_trainer
+/Back/AI/py_module/test13_trainer
+/Back/AI/py_module/test14_trainer
+/Back/AI/py_module/test15_trainer
+/Back/AI/py_module/test16_trainer
+/Back/AI/py_module/test17_trainer
+/Back/AI/py_module/test18_trainer

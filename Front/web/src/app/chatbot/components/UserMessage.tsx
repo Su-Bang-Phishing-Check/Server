@@ -8,7 +8,7 @@ const UserMessage = ({ text, time }: UserMessageProps) => {
     <div className="flex flex-col items-end gap-x-2 mt-2">
       <div
         className="text-sm md:text-base text-white bg-gray-600
-      p-2 rounded-xl shadow-md pl-6 pr-4 whitespace-pre-line"
+      py-2 rounded-xl shadow-md px-4 whitespace-pre-line"
       >
         {text}
       </div>

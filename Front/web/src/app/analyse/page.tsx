@@ -3,6 +3,7 @@ import TextAnalyse from './components/TextAnalyse/TextAnalyse';
 import ImageAnalyse from './components/ImageAnalyse/ImageAnalyse';
 import TabSelector from './components/TabSelector';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const AnalysePage = () => {
   const [selectedTab, setSelectedTab] = useState<'text' | 'image'>(
@@ -13,7 +14,10 @@ const AnalysePage = () => {
     <div className="flex flex-col items-center p-6 gap-y-6">
       <div className="w-full max-w-[900px] flex flex-col gap-y-4 py-2">
         <h1 className="text-2xl font-bold text-left text-[#3177FF]">
-          사기 문자 분석
+          AI 사기 문자 분석{' '}
+          <span className="italic text-base text-[#3177FF]">
+            Beta
+          </span>
         </h1>
         <p className="text-gray-600 text-sm md:text-base">
           문자 메시지를 입력하거나 캡처를 업로드하면,{' '}
@@ -39,12 +43,31 @@ const AnalysePage = () => {
           )}
         </div>
       </div>
+      <div className="w-full p-4 text-gray-500 text-xs md:text-sm">
+        <p>
+          ※ 사기 문자 AI 분석은 베타 버전입니다.{' '}
+          <br className="md:hidden" />
+          정확도 개선 중이며 결과는 참고용입니다.
+          <br />
+          피해가 의심되면 금융기관 또는 경찰에 즉시 신고해 주세요.
+        </p>
+        <div className="mt-2">
+          개발자에게 피드백을 주시면, 서비스 개선에 큰 도움이 됩니다.{' '}
+          <br className="md:hidden" />
+          <Link
+            href="/feedback"
+            className="text-blue-400 hover:underline"
+          >
+            피드백 보내기
+          </Link>
+        </div>
 
-      <p className="p-2 text-gray-500 text-xs md:text-sm mt-4">
-        입력하신 정보는 사기문자 분석 AI학습에 사용되며,{' '}
-        <br className="md:hidden" />
-        개인정보 보호를 위해 암호화되어 처리됩니다.
-      </p>
+        <p className="mt-2">
+          입력하신 정보는 사기문자 분석 AI학습에 사용되며,{' '}
+          <br className="md:hidden" />
+          개인정보 보호를 위해 암호화되어 처리됩니다.
+        </p>
+      </div>
     </div>
   );
 };

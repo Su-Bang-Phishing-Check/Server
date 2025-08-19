@@ -3,21 +3,21 @@ import { useEffect, useState } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Link from 'next/link';
 
-interface GetPageResponse {
+export interface GetPageResponse {
   pageNo: number;
   totalPage: number;
   dataCount: number;
   data: NoticeType[];
 }
 
-interface NoticeType {
+export interface NoticeType {
   id: number;
   title: string;
   link: string;
   created_at: string;
 }
 
-const GetPageNotice = () => {
+const WebNotice = () => {
   const [pageNo, setPageNo] = useState(1);
   const [notices, setNotices] = useState<NoticeType[]>([]);
   const [totalPage, setTotalPage] = useState(1);
@@ -77,7 +77,7 @@ const GetPageNotice = () => {
           <button
             key={i}
             onClick={() => goToPage(i)}
-            className={`w-8 h-8 items-center justify-center border border-gray-300 rounded-md ${
+            className={`mx-2 cursor-pointer w-8 h-8 items-center justify-center border border-gray-300 rounded-md ${
               i === current
                 ? 'bg-blue-500 text-white'
                 : 'bg-gray-200 text-gray-700'
@@ -93,7 +93,7 @@ const GetPageNotice = () => {
           <button
             key={i}
             onClick={() => goToPage(i)}
-            className={`w-8 h-8 items-center justify-center border border-gray-300 rounded-md ${
+            className={`mx-2 cursor-pointer w-8 h-8 items-center justify-center border border-gray-300 rounded-md ${
               i === current
                 ? 'bg-blue-500 text-white'
                 : 'bg-gray-200 text-gray-700'
@@ -109,7 +109,7 @@ const GetPageNotice = () => {
           <button
             key={i}
             onClick={() => goToPage(i)}
-            className={`w-8 h-8 items-center justify-center border border-gray-300 rounded-md ${
+            className={`mx-2 cursor-pointer w-8 h-8 items-center justify-center border border-gray-300 rounded-md ${
               i === current
                 ? 'bg-blue-500 text-white'
                 : 'bg-gray-200 text-gray-700'
@@ -151,21 +151,23 @@ const GetPageNotice = () => {
                     key={notice.id}
                     className="hover:bg-gray-50 transition-colors"
                   >
-                    <td className="h-16 px-4 py-3 text-sm md:text-base text-gray-700 tabular-nums">
+                    <td className="h-16 px-4 py-3 text-base text-gray-700 tabular-nums">
                       {notice.id}
                     </td>
 
                     <td className="px-4 py-3 align-middle">
                       <Link
                         href={notice.link}
-                        className="block w-full truncate md:line-clamp-2 md:whitespace-normal
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full truncate line-clamp-2 whitespace-normal
                         text-base hover:underline hover:text-blue-500"
                       >
                         {notice.title}
                       </Link>
                     </td>
 
-                    <td className="h-16 px-4 py-3 text-right text-sm md:text-base text-gray-500 whitespace-nowrap">
+                    <td className="h-16 px-4 py-3 text-right text-base text-gray-500 whitespace-nowrap">
                       {notice.created_at}
                     </td>
                   </tr>
@@ -177,7 +179,7 @@ const GetPageNotice = () => {
       ) : (
         !loading && !error && <p>공지사항이 없습니다.</p>
       )}
-      <div>
+      <div className="mt-6">
         <button onClick={goPrev} disabled={pageNo === 1}>
           <FiChevronLeft
             size={20}
@@ -196,4 +198,4 @@ const GetPageNotice = () => {
   );
 };
 
-export default GetPageNotice;
+export default WebNotice;

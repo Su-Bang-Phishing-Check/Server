@@ -1,8 +1,9 @@
-"use client";
-import { useEffect, useState } from "react";
-import NoticeList from "./NoticeList";
-import NoticeTriangleIcon from "./NoticeTriangleIcon";
-import { useRouter } from "next/navigation";
+'use client';
+import { useEffect, useState } from 'react';
+import NoticeList from './NoticeList';
+import NoticeTriangleIcon from './NoticeTriangleIcon';
+import { useRouter } from 'next/navigation';
+import Loading from '@/app/Loading';
 
 interface GetMainNoticeResponse {
   dataCount: number;
@@ -23,19 +24,22 @@ interface Notice {
 
 const Notice = () => {
   const [notices, setNotices] = useState<Notice[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
   const fetchNotices = async () => {
+    setIsLoading(true);
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/notice/mainNotice`,
       {
-        method: "GET",
-        cache: "no-store",
+        method: 'GET',
+        cache: 'no-store',
       }
     );
 
     if (!res.ok) {
-      console.error("메인화면 공지사항 조회 실패");
+      console.error('메인화면 공지사항 조회 실패');
+      setIsLoading(false);
       return;
     }
     const data: GetMainNoticeResponse = await res.json();
@@ -47,6 +51,7 @@ const Notice = () => {
         created_at: it.created_at,
       }))
     );
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -69,15 +74,18 @@ const Notice = () => {
             font-medium text-[0.875rem] md:text-[1.125rem] 
             bg-white text-[#3177FF] rounded-[5px] 
             cursor-pointer hover:bg-[#eaf2ff] transition shadow-md"
-            onClick={() => router.push("/notice")}
+            onClick={() => router.push('/notice')}
           >
             전체보기
           </button>
         </div>
       </div>
       <div className="flex flex-col space-y-2 px-2 md:px-4">
+        <Loading isLoading={isLoading} />
         {notices.length === 0 && (
-          <p className="text-sm text-gray-200">공지사항이 없습니다.</p>
+          <p className="text-sm text-gray-200">
+            공지사항이 없습니다.
+          </p>
         )}
         {notices.map((it) => (
           <NoticeList

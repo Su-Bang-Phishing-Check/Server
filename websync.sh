@@ -4,7 +4,7 @@ rm -rf ./*
 
 git clone https://github.com/Su-Bang-Phishing-Check/Front-Phishing-Check.git
 cd Front-Phishing-Check
-git checkout bug
+git checkout web-app
 
 cd ../../
 

@@ -23,7 +23,7 @@ const Button = ({
     onClick?.();
   };
   const baseStyle =
-    'cursor-pointer font-medium w-[180px] h-[50px] text-sm md:text-base rounded-[10px] px-4 py-2';
+    'cursor-pointer font-medium w-full md:w-[180px] h-[50px] text-sm md:text-base rounded-[10px] px-2 md:px-4';
   const fillStyle =
     'bg-[#3177ff] text-white hover:bg-[#005ce6] transition-colors duration-200';
   const outlineStyle =

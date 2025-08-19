@@ -1,5 +1,5 @@
-"use client";
-import Button from "./Button";
+'use client';
+import Button from './Button';
 
 const MainBanner = () => {
   return (
@@ -8,10 +8,16 @@ const MainBanner = () => {
         <h2 className="font-bold text-[2rem] md:text-[3.25rem]">
           헷갈릴 땐,
           <br />
-          피싱체크하세요.
+          {'피싱체크'.split('').map((char, i) => (
+            <span key={i} className="dot-above text-[#3177FF]">
+              {char}
+            </span>
+          ))}
+          하세요.
         </h2>
         <p className="text-base md:text-xl">
-          보이스피싱, 스미싱 위험을 빠르게 확인하세요.
+          <span className="font-bold">보이스피싱, 스미싱 </span>위험을
+          빠르게 확인하세요.
           <br />
         </p>
       </div>
