@@ -1,6 +1,9 @@
 import axios from 'axios';
 import FormData from 'form-data';
 import path from 'path';
+import { createPool } from '../DB/pscheckDB.js';
+
+const db = createPool();
 
 const AI_server = axios.create({
     baseURL: "http://ai_server:4100/",
@@ -32,6 +35,10 @@ export async function analyse_text(req, res)
         });
 
         console.log("done!")
+
+        await db.execute(`
+            INSERT INTO messages
+            (text_messages, classified_as) VALUES(?,?)`, [text, result.data.isScam]);
 
         return res.status(201).json(result.data);
 
