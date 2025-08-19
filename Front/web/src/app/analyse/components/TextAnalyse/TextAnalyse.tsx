@@ -6,8 +6,6 @@ import AnalyseButton from '../../AnalyseButton';
 import ResultText from './ResultText';
 import Loading from '@/app/Loading';
 
-const MAX_LEN=512;
-
 export interface TextResponse {
   isScam: boolean;
   score: number;
@@ -48,7 +46,7 @@ const TextAnalyse = () => {
       <TextInput text={text} setText={setText} />
       <AnalyseButton
         onClick={handleSubmit}
-        disabled={text.trim().length < 15 || text.trim().length > MAX_LEN}
+        disabled={text.trim().length < 15 || text.trim().length > 256}
       />
       <Loading isLoading={isLoading} />
       <ResultText result={result} isLoading={isLoading} />

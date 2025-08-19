@@ -9,7 +9,7 @@ const TextInput = ({
   text: string;
   setText: (value: string) => void;
 }) => {
-  const MAX_LEN = 512;
+  const MAX_LEN = 256;
 
   return (
     <>
