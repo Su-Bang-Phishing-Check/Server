@@ -1,5 +1,5 @@
 # 피싱체크
-
+ <img src="/Logos/logo-192.png" width="50" height="50"/>
 ----------------------------
 
 ### 목차
@@ -159,4 +159,4 @@ sh run.sh
 자세한 내용은 [LICENSES.md](/LICENSES.md) 를 참고 바랍니다.
 
 
-![피싱체크](/Logos/logo-192.png)
+
