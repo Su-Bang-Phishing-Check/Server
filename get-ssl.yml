@@ -15,7 +15,7 @@ services:
     volumes:
       - certloc:/etc/letsencrypt:rw
       - challengeloc:/var/www/certbot
-    command: certonly --webroot --agree-tos -m hanharry2@gmail.com -w /var/www/certbot -d xn--hw4bo2pv3cz9f.com -d api.xn--hw4bo2pv3cz9f.com -d www.xn--hw4bo2pv3cz9f.com
+    command: certonly --webroot --agree-tos -m [이메일] -w /var/www/certbot -d [도메인.com] -d [api.도메인.com] -d [www.도메인.com]  #도메인 수정 및 이메일
 
 volumes:
   certloc:

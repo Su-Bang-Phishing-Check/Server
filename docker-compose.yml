@@ -63,14 +63,6 @@ services:
       - ./DB/init.sql:/docker-entrypoint-initdb.d/init.sql
 
 
-
-  front:
-    container_name: front_server
-    bulid: ./Front/web
-    volumes:
-      - ./Front/web:/app
-
-
 volumes:
   certloc:
   challengeloc:
