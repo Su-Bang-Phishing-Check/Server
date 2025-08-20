@@ -1,5 +1,5 @@
 # 피싱체크
- <img src="/Logos/logo-192.png" width="300" height="300"/>
+ <img src="/Logos/icon4.png" width="300" height="300"/>
 ----------------------------
 
 ### 목차
