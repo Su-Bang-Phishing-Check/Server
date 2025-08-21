@@ -99,60 +99,63 @@ export async function sync_db()
         }
 
         
-        let input = params;
-        input.pageIndex=1;
-        const ret = await FSS_info.request({
-            url: 'fss/bbs/B0000175/list.do',
-            method: 'get',
-            params: input
-        });
+        // let input = params;
+        // input.pageIndex=1;
+        // const ret = await FSS_info.request({
+        //     url: 'fss/bbs/B0000175/list.do',
+        //     method: 'get',
+        //     params: input
+        // });
 
-        //console.log(ret.data)
+        // //console.log(ret.data)
 
-        const $res = cheerio.load(ret.data);
-        let max_page = $res('.count-total').text();
-        max_page = max_page.match(/\/\s*(\d+)\s*페이지/);
-        max_page = parseInt(max_page[1]);
-        let arr = [];
-        console.log(max_page);
+        // const $res = cheerio.load(ret.data);
+        // let max_page = $res('.count-total').text();
+        // max_page = max_page.match(/\/\s*(\d+)\s*페이지/);
+        // max_page = parseInt(max_page[1]);
+        // let arr = [];
+        // console.log(max_page);
 
-        for(let i =1; i<=max_page; i++)
-        {
-            input.pageIndex=i;
-            const ret2 = await FSS_info.request({
-                url: 'fss/bbs/B0000175/list.do',
-                method: 'get',
-                params: input
-            });
-            const $data = cheerio.load(ret2.data);
-            //console.log(ret2.data);
+        // for(let i =1; i<=max_page; i++)
+        // {
+        //     input.pageIndex=i;
+        //     const ret2 = await FSS_info.request({
+        //         url: 'fss/bbs/B0000175/list.do',
+        //         method: 'get',
+        //         params: input
+        //     });
+        //     const $data = cheerio.load(ret2.data);
+        //     //console.log(ret2.data);
 
-            const rows = $data('div.bd-list table tbody tr').toArray();
+        //     const rows = $data('div.bd-list table tbody tr').toArray();
 
-            for(const row of rows){
-                const number = $data(row).find('td.num').text().trim();
-                const titleTag = $data(row).find('td.title a');
-                const title = titleTag.text().trim();
-                const link = 'https://fss.or.kr' + titleTag.attr('href');
-                const date = $data(row).find('td').eq(3).text().trim();
+        //     for(const row of rows){
+        //         const number = $data(row).find('td.num').text().trim();
+        //         const titleTag = $data(row).find('td.title a');
+        //         const title = titleTag.text().trim();
+        //         const link = 'https://fss.or.kr' + titleTag.attr('href');
+        //         const date = $data(row).find('td').eq(3).text().trim();
 
-                arr.push({number, title, link, date});
-            }
+        //         arr.push({number, title, link, date});
+        //     }
         
-        }
+        // }
+            
 
-        for(const obj of arr)
-        {
-            await db.execute(`
-                insert into notices
-                VALUES(?,?,?,str_to_date(?,'%Y-%m-%d'))
-                on duplicate key update title=?, created_at=str_to_date(?, '%Y-%m-%d'), link=?`,
-                [obj.number, obj.title, obj.link, obj.date, obj.title, obj.date, obj.link]);
-        }
+        // for(const obj of arr)
+        // {
+        //     await db.execute(`
+        //         insert into notices
+        //         VALUES(?,?,?,str_to_date(?,'%Y-%m-%d'))
+        //         on duplicate key update title=?, created_at=str_to_date(?, '%Y-%m-%d'), link=?`,
+        //         [obj.number, obj.title, obj.link, obj.date, obj.title, obj.date, obj.link]);
+        // }
 
-        console.log('sync complete!');
+        // console.log('sync complete!');
 
-        return;
+
+
+         return;
 
     } catch(err) {
         console.log(err);
