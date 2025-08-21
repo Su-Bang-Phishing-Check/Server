@@ -3,6 +3,44 @@
  
 ----------------------------
 
+## 👩‍💻 Developers
+
+
+<table>
+ <tr>
+  <td align="center">
+      <a href="https://github.com/hy-glory">
+        <img src="https://github.com/hy-glory.png" width="150" alt="김하영" />
+      </a>
+  </td>
+  <td align="center">
+      <a href="https://github.com/azbayor2">
+        <img src="https://github.com/azbayor2.png" width="150" alt="한정연" />
+      </a>
+  </td>
+ </tr>
+ <tr>
+  <td align="center">
+      <a href="https://github.com/hy-glory">
+        <b>김하영</b>
+      </a>
+    </td>
+  <td align="center">
+      <a href="https://github.com/azbayor2">
+        <b>한정연</b>
+      </a>
+    </td>
+ </tr>
+ <td align="center">
+      <span>Frontend<br>API 연동 및 데이터 수집</span>
+    </td>
+ <td align="center">
+      <span>Backend<br>데이터 전처리 및 AI 개발</span>
+    </td>
+</table>
+ 
+----------------------------
+
 ### 목차
  1. [라이선스](#1-라이선스)
  2. [소개](#2-소개)
